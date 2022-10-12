@@ -10,6 +10,16 @@ const routes = [
     name: 'Home',
     component: Home
   },
+  {
+    path: '/connection',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/registering',
+    name: 'Home',
+    component: Home
+  },
 ]
 
 const router = new VueRouter({
