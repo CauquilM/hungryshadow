@@ -26,10 +26,11 @@
       <v-container fluid class="grey lighten-5 fill-height">
         <v-row no-gutters class="justify-content">
           <v-col cols="6">
-            <DisplayHungerComponent  class="text-center"/>
+            <DisplayHungerComponent class="text-center" />
           </v-col>
-          <v-col cols="6"  class="text-center">
-            <p >Test</p>
+          <v-col cols="6" class="text-center">
+            <p v-if="isConnected">Connecté</p>
+            <p v-else class="text-lg-h4">Bienvenue sur l'application pour nourrir Shadow</p>
           </v-col>
         </v-row>
       </v-container>
@@ -39,12 +40,12 @@
 </template>
 
 <script>
-import DisplayHungerComponent from './components/DisplayHungerComponent.vue';
+import DisplayHungerComponent from "./components/DisplayHungerComponent.vue";
 export default {
-    name: "App",
-    data: () => ({
-    //
-    }),
-    components: { DisplayHungerComponent }
+  name: "App",
+  data: () => ({
+    isConnected: false,
+  }),
+  components: { DisplayHungerComponent },
 };
 </script>
