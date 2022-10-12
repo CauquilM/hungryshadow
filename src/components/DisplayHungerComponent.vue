@@ -1,5 +1,5 @@
 <template>
-  <p class="" v-if="!isHungry">😺 Shadow a été nourrie il y a peu</p>
+  <p class="text-lg-h4" v-if="!isHungry">😺 Shadow a été nourrie il y a peu</p>
   <p v-else>😾 Shadow peut avoir faim</p>
 </template>
 <script>
@@ -7,7 +7,7 @@ export default {
   name: "DisplayHungerComponent",
   data() {
     return {
-      isHungry: true,
+      isHungry: false,
     };
   },
 };

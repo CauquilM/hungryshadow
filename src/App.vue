@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app color="white" dark>
-      <div class="d-flex align-center">
+      <div class="d-flex">
         <v-btn icon href="/" class="ml-5">
           <v-img
             alt="Vuetify Logo"
@@ -23,13 +23,13 @@
     </v-app-bar>
 
     <v-main>
-      <v-container fluid class="grey lighten-5">
-        <v-row no-gutters class="justify-center">
+      <v-container fluid class="grey lighten-5 fill-height">
+        <v-row no-gutters class="justify-content">
           <v-col cols="6">
-            <DisplayHungerComponent/>
+            <DisplayHungerComponent  class="text-center"/>
           </v-col>
-          <v-col cols="6">
-            <p>Test</p>
+          <v-col cols="6"  class="text-center">
+            <p >Test</p>
           </v-col>
         </v-row>
       </v-container>
