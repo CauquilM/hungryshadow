@@ -37,6 +37,16 @@ export default new Vuex.Store({
         })
         .catch((error) => console.log("GET SUCCESS", error));
     },
+    deletePost({ dispatch }, amount) {
+      axios
+        .delete(`http://localhost:3000/${amount}`)
+        .then((res) => {
+          dispatch("getPosts");
+          console.log("GET SUCCESS", res.data);
+        })
+        .catch((error) => console.log("GET SUCCESS", error));
+    },
+
     modifyWindowSize(context) {
       context.commit("SET_WINDOW_SIZE");
     },

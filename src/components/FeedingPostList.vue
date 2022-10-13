@@ -21,7 +21,7 @@
             data-cy="list-button"
             text
             color="deep-purple accent-4"
-            @click="deletePost(post.index)"
+            @click="deletePost(post._id)"
           >
             Supprimer
           </v-btn>
@@ -31,7 +31,7 @@
   </div>
 </template>
 <script>
-import { mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 
 export default {
   name: "FeedingPostList",
@@ -39,9 +39,7 @@ export default {
     ...mapState(["posts"]),
   },
   methods: {
-    deletePost(e) {
-      this.posts.splice(this.posts.indexOf(e), 1);
-    },
+    ...mapActions(["deletePost"]),
   },
 };
 </script>
