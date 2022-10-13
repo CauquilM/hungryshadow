@@ -19,6 +19,20 @@
       <p>A quelle heure ?</p>
       <v-time-picker format="24hr" class="timePicker" />
     </div>
+    <div>
+      <p>Un commentaire ?</p>
+      <v-textarea
+        filled
+        rows="3"
+        auto-grow
+        value="Ajoutez un commentaire..."
+      />
+    </div>
+    <div>
+        <v-btn>
+            Ajouter
+        </v-btn>
+    </div>
   </div>
 </template>
 <script>
