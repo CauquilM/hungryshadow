@@ -1,26 +1,24 @@
 <template>
   <div>
     <p class="text-lg-h4">Ajouter un repas</p>
-    <v-row no-gutters justify="center">
-      <v-col cols="6">
-        <p>Quelle quantité ?</p>
-        <div class="flex-center">
-          <v-radio-group class="radio-group">
-            <v-radio
-              v-for="quantity in quantities"
-              :key="quantity.index"
-              :label="quantity.size"
-              :value="quantity.size"
-              :color="quantity.color"
-              class="v-label.theme--light"
-            ></v-radio>
-          </v-radio-group>
-        </div>
-      </v-col>
-      <v-col cols="6">
-        <p>A quelle heure ?</p>
-      </v-col>
-    </v-row>
+
+    <p>Quelle quantité ?</p>
+    <div class="flex-center">
+      <v-radio-group class="radio-group">
+        <v-radio
+          v-for="quantity in quantities"
+          :key="quantity.index"
+          :label="quantity.size"
+          :value="quantity.size"
+          :color="quantity.color"
+          class="v-label.theme--light"
+        ></v-radio>
+      </v-radio-group>
+    </div>
+    <div>
+      <p>A quelle heure ?</p>
+      <v-time-picker format="24hr" class="timePicker" />
+    </div>
   </div>
 </template>
 <script>
@@ -38,9 +36,9 @@ export default {
 };
 </script>
 <style>
-.radio-group{
-    border: 2px solid black;
-    padding: 15px 15px 0 15px;
+.radio-group {
+  border: 2px solid black;
+  padding: 15px 15px 0 15px;
 }
 
 .v-label.theme--light {
