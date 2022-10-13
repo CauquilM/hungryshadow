@@ -5,11 +5,7 @@ describe("My First Test", () => {
     cy.visit("/");
   });
 
-  it("Visits the app root url", () => {
-    cy.get("[data-cy=title]").should("have.text", "Test");
-  });
-
-  it("Shouldn't be void", () => {
-    cy.get("[data-cy=parent]").children().should("have.text", "Coucou");
+  it("Test the length of the list", () => {
+    cy.get("[data-cy=list-length]").children().should("have.length", 2);
   });
 });

@@ -32,10 +32,12 @@
             <v-divider vertical class="divider" />
           </v-col>
           <v-col cols="5" class="text-center">
-            <p v-if="isConnected">Connecté</p>
-            <p v-else class="text-lg-h4">
+            <div v-if="isConnected">
+              <FeedingPostList />
+            </div>
+            <h1 v-else class="text-lg-h4">
               Bienvenue sur l'application pour nourrir Shadow
-            </p>
+            </h1>
           </v-col>
         </v-row>
       </v-container>
@@ -46,12 +48,13 @@
 
 <script>
 import DisplayHungerComponent from "./components/DisplayHungerComponent.vue";
+import FeedingPostList from "./components/FeedingPostList.vue";
 export default {
   name: "App",
   data: () => ({
-    isConnected: false,
+    isConnected: true,
   }),
-  components: { DisplayHungerComponent },
+  components: { DisplayHungerComponent, FeedingPostList },
 };
 </script>
 <style>
