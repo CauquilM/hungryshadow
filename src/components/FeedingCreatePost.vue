@@ -25,7 +25,7 @@
       <v-textarea filled rows="3" auto-grow v-model="comment" />
     </div>
     <div>
-      <v-btn @click="createPost({portion: portion, time: time, comment: comment, person: person})"> Ajouter </v-btn>
+      <v-btn @click="createPost({portion: portion, time: time, comment: comment, person: person, date: new Date().toLocaleDateString('fr')})"> Ajouter </v-btn>
     </div>
   </div>
 </template>

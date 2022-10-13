@@ -40,12 +40,13 @@ export default {
   name: "App",
   mounted() {
     this.modifyWindowSize();
+    this.getPosts();
   },
   computed: {
     ...mapState(["windowSize"]),
   },
   methods: {
-    ...mapActions(["modifyWindowSize"]),
+    ...mapActions(["modifyWindowSize", "getPosts"]),
   },
   components: { DisplayHungerComponent },
 };
