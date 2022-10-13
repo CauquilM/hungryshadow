@@ -4,7 +4,7 @@
 
     <p>Quelle quantité ?</p>
     <div class="flex-center">
-      <v-radio-group class="radio-group">
+      <v-radio-group class="radio-group" v-model="portion">
         <v-radio
           v-for="quantity in quantities"
           :key="quantity.index"
@@ -17,35 +17,38 @@
     </div>
     <div>
       <p>A quelle heure ?</p>
-      <v-time-picker format="24hr" class="timePicker" />
+      <v-time-picker format="24hr" v-model="time"></v-time-picker>
+      <p>Heure : {{ time }}</p>
     </div>
     <div>
       <p>Un commentaire ?</p>
-      <v-textarea
-        filled
-        rows="3"
-        auto-grow
-        value="Ajoutez un commentaire..."
-      />
+      <v-textarea filled rows="3" auto-grow v-model="comment" />
     </div>
     <div>
-        <v-btn>
-            Ajouter
-        </v-btn>
+      <v-btn @click="createPost({portion: portion, time: time, comment: comment, person: person})"> Ajouter </v-btn>
     </div>
   </div>
 </template>
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "FeedingCreatePost",
   data() {
     return {
       quantities: [
-        { size: "Petite", color: "green darken-4" },
-        { size: "Une poignée", color: "orange darken-4" },
-        { size: "Beaucoup", color: "red darken-4" },
+        { size: "petite", color: "green darken-4" },
+        { size: "une poignée", color: "orange darken-4" },
+        { size: "beaucoup", color: "red darken-4" },
       ],
+      portion: null,
+      person: "maman",
+      time: null,
+      comment: null
     };
+  },
+  methods: {
+    ...mapActions(["createPost"]),
   },
 };
 </script>

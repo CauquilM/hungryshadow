@@ -7,7 +7,7 @@
           <p class="text-h6 text--primary">
             Shadow a eu un repas à {{ post.time }}
           </p>
-          <p class="text-h6 text--primary">La dose était {{ post.quantity }}</p>
+          <p class="text-h6 text--primary">La dose était {{ post.portion }}</p>
           <p class="text-h6 text--primary">
             La personne qui à donnée est {{ post.person }}
           </p>
@@ -31,20 +31,25 @@
   </div>
 </template>
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "FeedingPostList",
   data() {
     return {
-      posts: [
-        {
-          time: "17:15",
-          quantity: "petite",
-          person: "Maman",
-          comment: "La petite à bien mangée",
-        },
-        { time: "10:00", quantity: "beaucoup", person: "Mathieu" },
-      ],
+      // posts: [
+      //   {
+      //     time: "17:15",
+      //     quantity: "petite",
+      //     person: "Maman",
+      //     comment: "La petite à bien mangée",
+      //   },
+      //   { time: "10:00", quantity: "beaucoup", person: "Mathieu" },
+      // ],
     };
+  },
+  computed: {
+    ...mapState(["posts"]),
   },
   methods: {
     deletePost(e) {
