@@ -11,6 +11,7 @@ export default new Vuex.Store({
   },
   mutations: {
     SET_POST(state, payload) {
+      state.posts = [];
       state.posts = state.posts.concat(payload);
     },
     SET_WINDOW_SIZE(state) {
@@ -18,11 +19,12 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    createPost(_, amount) {
+    createPost({ dispatch }, amount) {
       axios
         .post("http://localhost:3000/", amount)
         .then((res) => {
           console.log("STORE", res);
+          dispatch("getPosts");
         })
         .catch((error) => console.log("STORE", error));
     },

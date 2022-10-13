@@ -1,7 +1,7 @@
 <template>
   <div>
     <p class="text-lg-h4">Liste des repas de Shadow</p>
-    <div v-for="post in posts" :key="post.index" data-cy="list-length">
+    <div v-for="post in posts" :key="post._id" data-cy="list-length">
       <v-card class="mx-auto mt-10" max-width="344">
         <v-card-text>
           <p class="text-h6 text--primary">
