@@ -24,13 +24,18 @@
 
     <v-main>
       <v-container fluid class="grey lighten-5 fill-height">
-        <v-row no-gutters class="justify-content">
+        <v-row no-gutters class="align-center">
           <v-col cols="6">
-            <DisplayHungerComponent class="text-center" />
+            <DisplayHungerComponent class="text-center sticky-component" />
           </v-col>
-          <v-col cols="6" class="text-center">
+          <v-col>
+            <v-divider vertical class="divider" />
+          </v-col>
+          <v-col cols="5" class="text-center">
             <p v-if="isConnected">Connecté</p>
-            <p v-else class="text-lg-h4">Bienvenue sur l'application pour nourrir Shadow</p>
+            <p v-else class="text-lg-h4">
+              Bienvenue sur l'application pour nourrir Shadow
+            </p>
           </v-col>
         </v-row>
       </v-container>
@@ -49,3 +54,23 @@ export default {
   components: { DisplayHungerComponent },
 };
 </script>
+<style>
+.divider {
+  border-width: 4px !important;
+  border-color: black !important;
+  position: fixed;
+  top: 0;
+}
+
+.sticky-component {
+  width: 400px;
+  position: fixed;
+  top: 50%;
+  z-index: 1;
+  /* centering */
+  left: 25%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+</style>
