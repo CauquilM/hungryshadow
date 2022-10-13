@@ -35,19 +35,6 @@ import { mapState } from "vuex";
 
 export default {
   name: "FeedingPostList",
-  data() {
-    return {
-      // posts: [
-      //   {
-      //     time: "17:15",
-      //     quantity: "petite",
-      //     person: "Maman",
-      //     comment: "La petite à bien mangée",
-      //   },
-      //   { time: "10:00", quantity: "beaucoup", person: "Mathieu" },
-      // ],
-    };
-  },
   computed: {
     ...mapState(["posts"]),
   },

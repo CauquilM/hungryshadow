@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app color="white" dark>
-      <div class="d-flex">
+      <div>
         <v-btn icon href="/" class="ml-5">
           <v-img
             alt="Vuetify Logo"

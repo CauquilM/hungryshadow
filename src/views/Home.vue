@@ -10,7 +10,9 @@
       <v-col cols="5" class="text-center">
         <div v-if="isConnected">
           <FeedingCreatePost />
-          <FeedingPostList />
+          <div v-if="posts.length > 0">
+            <FeedingPostList />
+          </div>
         </div>
         <h1 v-else class="text-lg-h4">
           Bienvenue sur l'application pour nourrir Shadow
@@ -23,6 +25,7 @@
 <script>
 import DisplayHungerComponent from "@/components/DisplayHungerComponent.vue";
 import FeedingPostList from "@/components/FeedingPostList.vue";
+import { mapState } from "vuex";
 import FeedingCreatePost from "../components/FeedingCreatePost.vue";
 export default {
   name: "Home",
@@ -30,6 +33,9 @@ export default {
   data: () => ({
     isConnected: true,
   }),
+  computed: {
+    ...mapState(["posts"]),
+  },
 };
 </script>
 <style>
