@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="text-lg-h4">Ajouter un repas</p>
+    <p class="text-h4">Ajouter un repas</p>
 
     <p>Quelle quantité ?</p>
     <div class="flex-center">

@@ -1,13 +1,13 @@
 <template>
   <v-container fluid class="grey lighten-5 fill-height">
     <v-row no-gutters class="align-center">
-      <v-col cols="6">
-        <DisplayHungerComponent class="text-center sticky-component" />
+      <v-col v-if="windowSize > 769" cols="sm-6">
+        <DisplayHungerComponent v-if="windowSize > 768" class="text-center sticky-component" />
       </v-col>
       <v-col>
-        <v-divider vertical class="divider" />
+        <v-divider v-if="windowSize > 769" vertical class="divider" />
       </v-col>
-      <v-col cols="5" class="text-center">
+      <v-col :cols="windowSize < 768 ? 12 : 5" class="text-center">
         <div v-if="isConnected">
           <FeedingCreatePost />
           <div v-if="posts.length > 0">
@@ -34,7 +34,7 @@ export default {
     isConnected: true,
   }),
   computed: {
-    ...mapState(["posts"]),
+    ...mapState(["posts", "windowSize"]),
   },
 };
 </script>
