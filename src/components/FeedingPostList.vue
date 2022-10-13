@@ -13,6 +13,7 @@
         </v-card-text>
         <v-card-actions>
       <v-btn
+        data-cy="list-button"
         text
         color="deep-purple accent-4"
         @click="deletePost(post.index)"
