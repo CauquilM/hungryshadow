@@ -1,8 +1,9 @@
 Logic:
+    ☐ Protect login and registering pages from the connected user
     
 
 Design:
 
 Other:
     ✔ Put the code of app in home @done(22-10-13 07:21)
-    ☐ Add comment feature in feedingpostlist
+    ✔ Add comment feature in feedingpostlist @done(22-10-15 01:50)
