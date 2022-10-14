@@ -1,31 +1,32 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Home from "../views/Home.vue";
+import RegisteringView from "../views/RegisteringView.vue";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: "/",
+    name: "Home",
+    component: Home,
   },
   {
-    path: '/connection',
-    name: 'Home',
-    component: Home
+    path: "/connection",
+    name: "Home",
+    component: Home,
   },
   {
-    path: '/registering',
-    name: 'Home',
-    component: Home
+    path: "/registering",
+    name: "RegisteringView",
+    component: RegisteringView,
   },
-]
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
