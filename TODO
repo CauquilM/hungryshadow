@@ -1,12 +1,16 @@
-Logic:
+Design:
+    
+Todo now:
     ✘ Protect login and registering pages from the connected user @cancelled(22-10-15 20:38)
     ✔ Patch that the isAuth is reinitialized when changing of page @done(22-10-15 20:38)
-    ☐ Add saving mail in the API
-    ☐ Do RGPD check
-    
+    ✔ Add saving mail in the API @done(22-10-15 22:31)
+    ☐ Add in the API to check if the mail isn't already used 
 
-Design:
-
-Other:
+Todo Later:
     ✔ Put the code of app in home @done(22-10-13 07:21)
     ✔ Add comment feature in feedingpostlist @done(22-10-15 01:50)
+    ☐ Do RGPD check
+    ☐ Crypt all data in API
+
+Bugs:
+    ☐ See API users routes => login route lign 91-92 @high
