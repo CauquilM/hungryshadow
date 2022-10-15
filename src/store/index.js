@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     posts: [],
     windowSize: 0,
+    isAuth: false,
   },
   mutations: {
     SET_POST(state, payload) {
@@ -16,6 +17,9 @@ export default new Vuex.Store({
     },
     SET_WINDOW_SIZE(state) {
       state.windowSize = window.innerWidth;
+    },
+    SET_AUTH_STATE(state) {
+      state.isAuth == true ? state.isAuth = false : state.isAuth = true;
     },
   },
   actions: {
@@ -49,6 +53,10 @@ export default new Vuex.Store({
 
     modifyWindowSize(context) {
       context.commit("SET_WINDOW_SIZE");
+    },
+
+    modifyAuthState(context) {
+      context.commit("SET_AUTH_STATE");
     },
   },
 });

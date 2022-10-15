@@ -2,13 +2,16 @@
   <v-container fluid class="grey lighten-5 fill-height">
     <v-row no-gutters class="align-center">
       <v-col v-if="windowSize > 769" cols="sm-6">
-        <DisplayHungerComponent v-if="windowSize > 768" class="text-center sticky-component" />
+        <DisplayHungerComponent
+          v-if="windowSize > 768"
+          class="text-center sticky-component"
+        />
       </v-col>
       <v-col>
         <v-divider v-if="windowSize > 769" vertical class="divider" />
       </v-col>
       <v-col :cols="windowSize < 768 ? 12 : 5" class="text-center">
-        <div v-if="isConnected">
+        <div v-if="isAuth">
           <FeedingCreatePost />
           <div v-if="posts.length > 0">
             <FeedingPostList />
@@ -25,7 +28,7 @@
 <script>
 import DisplayHungerComponent from "@/components/DisplayHungerComponent.vue";
 import FeedingPostList from "@/components/FeedingPostList.vue";
-import { mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 import FeedingCreatePost from "../components/FeedingCreatePost.vue";
 export default {
   name: "Home",
@@ -33,8 +36,14 @@ export default {
   data: () => ({
     isConnected: true,
   }),
+  mounted() {
+    this.getPosts();
+  },
   computed: {
-    ...mapState(["posts", "windowSize"]),
+    ...mapState(["posts", "windowSize", "isAuth"]),
+  },
+  methods: {
+    ...mapActions(["getPosts"]),
   },
 };
 </script>

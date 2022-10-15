@@ -1,8 +1,35 @@
 <template>
-    <p>test</p>
+  <div>
+    <!-- <v-btn @click="modifyAuthState()">Click</v-btn> -->
+    <v-btn @click="changeAuth()">Click</v-btn>
+    <p>{{ auth }}</p>
+  </div>
 </template>
 <script>
+import { mapActions, mapState } from "vuex";
+
 export default {
   name: "RegisteringView",
+  data() {
+    return {
+      auth: false,
+    };
+  },
+  mounted() {
+    
+  },
+  computed: {
+    ...mapState(["windowSize", "isAuth"]),
+  },
+  methods: {
+    ...mapActions(["modifyAuthState"]),
+    changeAuth() {
+      sessionStorage.setItem("auth", true);
+      var auth = sessionStorage.getItem("auth");
+      this.auth = auth;
+      // if (auth) {
+      // }
+    },
+  },
 };
 </script>

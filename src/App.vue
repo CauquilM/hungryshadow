@@ -23,8 +23,16 @@
       <v-spacer></v-spacer>
 
       <v-btn href="/connection" text>
-        <span v-if="windowSize > 767" class="black--text">Se connecter</span>
-        <span v-else class="mr-sm-2 mt-15 black--text">Se connecter</span>
+        <v-btn text v-if="windowSize > 767 && isAuth" class="black--text"
+          >Déconnexion</v-btn
+        >
+        <v-btn text v-else-if="windowSize > 767 && !isAuth" class="black--text"
+          >Se connecter</v-btn
+        >
+        <v-btn text v-else-if="windowSize < 767 && isAuth" class="black--text mt-sm-5 mt-16 pr-0"
+          >Déconnexion</v-btn
+        >
+        <v-btn text v-else class="black--text mt-sm-5 mt-16 pr-0">Se connecter</v-btn>
       </v-btn>
     </v-app-bar>
     <v-main>
@@ -38,15 +46,19 @@ import { mapActions, mapState } from "vuex";
 import DisplayHungerComponent from "./components/DisplayHungerComponent.vue";
 export default {
   name: "App",
+  data() {
+    return {
+      connectionBtnTxt: "Se connecter",
+    };
+  },
   mounted() {
     this.modifyWindowSize();
-    this.getPosts();
   },
   computed: {
-    ...mapState(["windowSize"]),
+    ...mapState(["windowSize", "isAuth"]),
   },
   methods: {
-    ...mapActions(["modifyWindowSize", "getPosts"]),
+    ...mapActions(["modifyWindowSize"]),
   },
   components: { DisplayHungerComponent },
 };
