@@ -22,17 +22,33 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn href="/connection" text>
-        <v-btn text v-if="windowSize > 767 && isAuth" class="black--text"
+      <v-btn text>
+        <v-btn
+          href="/"
+          text
+          v-if="windowSize > 767 && isAuth"
+          class="black--text"
+          @click="logout()"
           >Déconnexion</v-btn
         >
-        <v-btn text v-else-if="windowSize > 767 && !isAuth" class="black--text"
+        <v-btn
+          href="/login"
+          text
+          v-else-if="windowSize > 767 && !isAuth"
+          class="black--text"
           >Se connecter</v-btn
         >
-        <v-btn text v-else-if="windowSize < 767 && isAuth" class="black--text mt-sm-5 mt-16 pr-0"
+        <v-btn
+          href="/"
+          text
+          v-else-if="windowSize < 767 && isAuth"
+          class="black--text mt-sm-5 mt-16 pr-0"
+          @click="logout()"
           >Déconnexion</v-btn
         >
-        <v-btn text v-else class="black--text mt-sm-5 mt-16 pr-0">Se connecter</v-btn>
+        <v-btn href="/login" text v-else class="black--text mt-sm-5 mt-16 pr-0"
+          >Se connecter</v-btn
+        >
       </v-btn>
     </v-app-bar>
     <v-main>
@@ -53,12 +69,16 @@ export default {
   },
   mounted() {
     this.modifyWindowSize();
+    this.getAuthState();
   },
   computed: {
     ...mapState(["windowSize", "isAuth"]),
   },
   methods: {
-    ...mapActions(["modifyWindowSize"]),
+    ...mapActions(["modifyWindowSize", "getAuthState"]),
+    logout() {
+      sessionStorage.clear();
+    },
   },
   components: { DisplayHungerComponent },
 };

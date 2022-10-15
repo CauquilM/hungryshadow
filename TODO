@@ -1,6 +1,8 @@
 Logic:
-    ☐ Protect login and registering pages from the connected user
-    ☐ Patch that the isAuth is reinitialized when changing of page
+    ✘ Protect login and registering pages from the connected user @cancelled(22-10-15 20:38)
+    ✔ Patch that the isAuth is reinitialized when changing of page @done(22-10-15 20:38)
+    ☐ Add saving mail in the API
+    ☐ Do RGPD check
     
 
 Design:

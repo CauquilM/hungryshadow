@@ -19,7 +19,7 @@ export default new Vuex.Store({
       state.windowSize = window.innerWidth;
     },
     SET_AUTH_STATE(state) {
-      state.isAuth == true ? state.isAuth = false : state.isAuth = true;
+      state.isAuth = sessionStorage.getItem("auth");
     },
   },
   actions: {
@@ -55,8 +55,9 @@ export default new Vuex.Store({
       context.commit("SET_WINDOW_SIZE");
     },
 
-    modifyAuthState(context) {
+    getAuthState(context) {
       context.commit("SET_AUTH_STATE");
+      console.log("here", sessionStorage.getItem("auth"));
     },
   },
 });

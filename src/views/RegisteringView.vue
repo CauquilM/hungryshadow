@@ -1,8 +1,5 @@
 <template>
   <div>
-    <!-- <v-btn @click="modifyAuthState()">Click</v-btn> -->
-    <v-btn @click="changeAuth()">Click</v-btn>
-    <p>{{ auth }}</p>
   </div>
 </template>
 <script>
