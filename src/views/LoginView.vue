@@ -32,19 +32,9 @@ export default {
     return {
       valid: true,
       name: "",
-      nameRules: [
-        (v) => !!v || "Name is required",
-        (v) => (v && v.length <= 10) || "Name must be less than 10 characters",
-      ],
+      nameRules: [(v) => !!v || "Un nom d'utilisateur est requis"],
       password: "",
-      passwordRules: [
-        (v) => !!v || "password is required",
-        (v) =>
-          /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(
-            v
-          ) ||
-          "Le mot de passe doit comporter au moins 6 caractères et doit comporter au moins une majuscule et un caractère numérique ou de ponctuation.",
-      ],
+      passwordRules: [(v) => !!v || "Un mot de passe est requis"],
     };
   },
   computed: {
