@@ -16,6 +16,7 @@ Todo Later:
     ☐ Faire de l'app une PWA
     ☐ Faire le responsive
     ☐ Afficher des erreur dans les formulaires selon les erreurs / succès
+    ☐ Ajouter un lien redirigeant vers l'inscription sur la page principale
 
 Bugs:
     ☐ See API users routes => login route lign 91-92 @high
