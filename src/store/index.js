@@ -10,6 +10,7 @@ export default new Vuex.Store({
     windowSize: 0,
     isAuth: false,
     accessToken: false,
+    username: "",
   },
   mutations: {
     SET_POST(state, payload) {
@@ -25,35 +26,38 @@ export default new Vuex.Store({
     SET_ACCESS_TOKEN_STATE(state, payload) {
       state.accessToken = payload;
     },
+    SET_USERNAME_IN_STATE(state, payload) {
+      state.username = payload;
+    },
   },
   actions: {
     // Posts
     createPost({ dispatch }, amount) {
-      axios
-        .post("http://localhost:3000/", amount)
-        .then((res) => {
-          console.log("STORE", res);
-          dispatch("getPosts");
-        })
-        .catch((error) => console.log("STORE", error));
+      axios.post("http://localhost:3000/", amount).then(() => {
+        // console.log("STORE", res);
+        dispatch("getPosts");
+      });
+      // .catch((error) => console.log("STORE", error));
     },
     getPosts(context) {
       axios
         .get("http://localhost:3000/")
         .then((res) => {
           context.commit("SET_POST", res.data);
-          console.log("GET SUCCESS", res.data);
+          // console.log("GET SUCCESS", res.data);
         })
         .catch((error) => console.log("GET SUCCESS", error));
     },
     deletePost({ dispatch }, amount) {
       axios
         .delete(`http://localhost:3000/${amount}`)
-        .then((res) => {
+        .then(() => {
           dispatch("getPosts");
-          console.log("GET SUCCESS", res.data);
+          // console.log("GET SUCCESS", res.data);
         })
-        .catch((error) => console.log("GET SUCCESS", error));
+        .catch(() => {
+          // console.log("GET SUCCESS", error);
+        });
     },
 
     // Users
@@ -62,10 +66,12 @@ export default new Vuex.Store({
         axios
           .post("http://localhost:3000/auth/login", credentials)
           .then((res) => {
-            console.log("Success => accessToken", res.data.accessToken);
             context.commit("SET_ACCESS_TOKEN_STATE", res.data.accessToken);
+            context.commit("SET_USERNAME_IN_STATE", credentials.username);
             console.log(this.state.accessToken);
             sessionStorage.setItem("auth", true);
+            sessionStorage.setItem("token", this.state.accessToken);
+            sessionStorage.setItem("username", credentials.username);
             resolve(res);
           })
           .catch((error) => {
@@ -77,6 +83,27 @@ export default new Vuex.Store({
       });
     },
 
+    userDisconnection() {
+      axios
+        .put(
+          "http://localhost:3000/auth/token",
+          { username: this.state.username },
+          {
+            headers: {
+              Authorization: "Bearer " + this.state.accessToken,
+            },
+          }
+        )
+        .then((res) => {
+          console.log("put ok => ", res);
+          sessionStorage.clear();
+          location.reload();
+        })
+        .catch((err) => {
+          console.log("put fail => ", err);
+        });
+    },
+
     // Others
     modifyWindowSize(context) {
       context.commit("SET_WINDOW_SIZE");
@@ -85,6 +112,15 @@ export default new Vuex.Store({
     getAuthState(context) {
       context.commit("SET_AUTH_STATE");
       console.log("here", sessionStorage.getItem("auth"));
+    },
+    getAccessToken(context) {
+      context.commit("SET_ACCESS_TOKEN_STATE", sessionStorage.getItem("token"));
+    },
+    getUsername(context) {
+      context.commit(
+        "SET_USERNAME_IN_STATE",
+        sessionStorage.getItem("username")
+      );
     },
   },
 });
