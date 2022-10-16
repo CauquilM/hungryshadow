@@ -9,7 +9,7 @@
           </p>
           <p class="text-h6 text--primary">La dose était {{ post.portion }}</p>
           <p class="text-h6 text--primary">
-            La personne qui à donnée est {{ post.person }}
+            La personne qui a donnée est {{ post.person }}
           </p>
           <p class="text-h6 text--primary" v-if="post.comment">
             {{ post.comment }}
