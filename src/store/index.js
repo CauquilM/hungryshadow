@@ -57,13 +57,17 @@ export default new Vuex.Store({
     },
     deletePost({ dispatch }, amount) {
       axios
-        .delete(`http://localhost:3000/${amount}`)
-        .then(() => {
-          dispatch("getPosts");
-          // console.log("GET SUCCESS", res.data);
+        .delete(`http://localhost:3000/posts/${amount}`, {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+          },
         })
-        .catch(() => {
-          // console.log("GET SUCCESS", error);
+        .then((res) => {
+          dispatch("getPosts");
+          console.log("SUCCESS DELETE", res);
+        })
+        .catch((err) => {
+          console.log("ERROR DELETE", err);
         });
     },
 
