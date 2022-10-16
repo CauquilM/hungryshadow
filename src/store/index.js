@@ -41,12 +41,19 @@ export default new Vuex.Store({
     },
     getPosts(context) {
       axios
-        .get("http://localhost:3000/")
+        .get("http://localhost:3000/posts", {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+          },
+        })
         .then((res) => {
           context.commit("SET_POST", res.data);
-          // console.log("GET SUCCESS", res.data);
+          console.log("GET SUCCESS", res);
         })
-        .catch((error) => console.log("GET SUCCESS", error));
+        .catch((error) => {
+          console.log("GET Error", error);
+          console.log("ERROR TOKEN", this.state.accessToken);
+        });
     },
     deletePost({ dispatch }, amount) {
       axios
