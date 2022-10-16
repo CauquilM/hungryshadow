@@ -33,17 +33,23 @@ export default new Vuex.Store({
   actions: {
     // Posts
     createPost({ dispatch }, amount) {
-      axios
-        .post("http://localhost:3000/posts", amount, {
-          headers: {
-            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-          },
-        })
-        .then((res) => {
-          console.log("STORE", res);
-          dispatch("getPosts");
-        })
-      .catch((err) => console.log("STORE", err));
+      return new Promise((resolve, reject) => {
+        axios
+          .post("http://localhost:3000/posts", amount, {
+            headers: {
+              Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+            },
+          })
+          .then((res) => {
+            console.log("STORE", res);
+            resolve(res);
+            dispatch("getPosts");
+          })
+          .catch((err) => {
+            console.log("STORE", err);
+            reject(err);
+          });
+      });
     },
     getPosts(context) {
       axios

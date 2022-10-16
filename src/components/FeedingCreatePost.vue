@@ -74,7 +74,7 @@ export default {
         { size: "beaucoup", color: "red darken-4" },
       ],
       portion: false,
-      time: false,
+      time: null,
       comment: null,
       error: "",
     };
@@ -88,14 +88,19 @@ export default {
       this.$refs.form.validate();
       if (this.$refs.form.validate() && this.time) {
         console.log("ok");
-        createPost({
-              portion: portion,
-              time: time,
-              comment: comment,
-              person: username,
-              date: new Date().toLocaleDateString('fr'),
-            })
-        this.error = "success";
+        this.createPost({
+          portion: this.portion,
+          time: this.time,
+          comment: this.comment,
+          person: this.username,
+          date: new Date().toLocaleDateString("fr"),
+        })
+          .then(() => {
+            this.error = "success";
+          })
+          .catch(() => {
+            this.error = "api-error";
+          });
       } else {
         console.log("no");
         this.error = "form-error";

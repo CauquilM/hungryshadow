@@ -20,3 +20,4 @@ Features:
 
 Bugs:
     ☐ See API users routes => login route lign 91-92 @critical
+    ☐ La page de connexion ne redirige pas vers la page home après la connexion @critical
