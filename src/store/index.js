@@ -60,6 +60,21 @@ export default new Vuex.Store({
         });
     },
 
+    userRegistering(_, credentials) {
+      return new Promise((resolve, reject) => {
+        axios
+          .post("http://localhost:3000/auth/register", credentials)
+          .then((res) => {
+            resolve(res);
+            console.log("register => ", res);
+          })
+          .catch((err) => {
+            reject(err);
+            console.log("register => ", err);
+          });
+      });
+    },
+
     // Users
     userConnection(context, credentials) {
       return new Promise((resolve, reject) => {
@@ -111,7 +126,6 @@ export default new Vuex.Store({
 
     getAuthState(context) {
       context.commit("SET_AUTH_STATE");
-      console.log("here", sessionStorage.getItem("auth"));
     },
     getAccessToken(context) {
       context.commit("SET_ACCESS_TOKEN_STATE", sessionStorage.getItem("token"));

@@ -11,6 +11,11 @@ Todo Later:
     ✔ Add comment feature in feedingpostlist @done(22-10-15 01:50)
     ☐ Do RGPD check
     ☐ Crypt all data in API
+    ☐ Ajouter une icone
+    ☐ Ajouter un favicon
+    ☐ Faire de l'app une PWA
+    ☐ Faire le responsive
+    ☐ Afficher des erreur dans les formulaires selon les erreurs / succès
 
 Bugs:
     ☐ See API users routes => login route lign 91-92 @high
