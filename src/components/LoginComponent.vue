@@ -43,15 +43,14 @@ export default {
   },
   methods: {
     ...mapActions(["userConnection"]),
-    changeAuth() {
-      sessionStorage.setItem("auth", true);
-    },
     validate() {
       this.$refs.form.validate();
       if (this.$refs.form.validate()) {
         this.userConnection({
           username: this.username,
           password: this.password,
+        }).then((res) => {
+          console.log("promise login", res);
         });
       }
     },

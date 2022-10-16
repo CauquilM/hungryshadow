@@ -67,12 +67,17 @@ export default {
       connectionBtnTxt: "Se connecter",
     };
   },
+  watch: {
+    accessToken() {
+      this.getAuthState();
+    },
+  },
   mounted() {
     this.modifyWindowSize();
     this.getAuthState();
   },
   computed: {
-    ...mapState(["windowSize", "isAuth"]),
+    ...mapState(["windowSize", "isAuth", "accessToken"]),
   },
   methods: {
     ...mapActions(["modifyWindowSize", "getAuthState"]),

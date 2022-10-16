@@ -9,6 +9,7 @@ export default new Vuex.Store({
     posts: [],
     windowSize: 0,
     isAuth: false,
+    accessToken: false,
   },
   mutations: {
     SET_POST(state, payload) {
@@ -20,6 +21,9 @@ export default new Vuex.Store({
     },
     SET_AUTH_STATE(state) {
       state.isAuth = sessionStorage.getItem("auth");
+    },
+    SET_ACCESS_TOKEN_STATE(state, payload) {
+      state.accessToken = payload;
     },
   },
   actions: {
@@ -53,15 +57,24 @@ export default new Vuex.Store({
     },
 
     // Users
-    userConnection(_, credentials) {
-      axios
-        .post("http://localhost:3000/auth/login", credentials)
-        .then((res) => {
-          console.log("Success => accessToken", res.data.accessToken);
-        })
-        .catch((error) => {
-          console.error(`Message => ${error.response.data}, Status => ${error.response.status}`);
-        });
+    userConnection(context, credentials) {
+      return new Promise((resolve, reject) => {
+        axios
+          .post("http://localhost:3000/auth/login", credentials)
+          .then((res) => {
+            console.log("Success => accessToken", res.data.accessToken);
+            context.commit("SET_ACCESS_TOKEN_STATE", res.data.accessToken);
+            console.log(this.state.accessToken);
+            sessionStorage.setItem("auth", true);
+            resolve(res);
+          })
+          .catch((error) => {
+            reject(error);
+            console.error(
+              `Message => ${error.response.data}, Status => ${error.response.status}`
+            );
+          });
+      });
     },
 
     // Others
