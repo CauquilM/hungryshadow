@@ -4,7 +4,7 @@ Todo now:
     ✘ Protect login and registering pages from the connected user @cancelled(22-10-15 20:38)
     ✔ Patch that the isAuth is reinitialized when changing of page @done(22-10-15 20:38)
     ✔ Add saving mail in the API @done(22-10-15 22:31)
-    ☐ Add in the API to check if the mail isn't already used 
+    ✔ Add in the API to check if the mail isn't already used @done(22-10-16 04:51)
 
 Todo Later:
     ✔ Put the code of app in home @done(22-10-13 07:21)

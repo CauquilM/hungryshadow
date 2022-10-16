@@ -23,6 +23,7 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    // Posts
     createPost({ dispatch }, amount) {
       axios
         .post("http://localhost:3000/", amount)
@@ -51,6 +52,19 @@ export default new Vuex.Store({
         .catch((error) => console.log("GET SUCCESS", error));
     },
 
+    // Users
+    userConnection(_, credentials) {
+      axios
+        .post("http://localhost:3000/auth/login", credentials)
+        .then((res) => {
+          console.log("Success => accessToken", res.data.accessToken);
+        })
+        .catch((error) => {
+          console.error(`Message => ${error.response.data}, Status => ${error.response.status}`);
+        });
+    },
+
+    // Others
     modifyWindowSize(context) {
       context.commit("SET_WINDOW_SIZE");
     },
