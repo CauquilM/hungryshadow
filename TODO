@@ -10,6 +10,7 @@ Features:
     ☐ Ajouter une icone @low
     ☐ Ajouter un favicon @low
     ☐ Faire de la JSDoc @low
+    ☐ Créer un moyen de réinitialiser son mot de passe @low
     ✘ Crypt all data in API @cancelled(22-10-16 23:12)
     ✘ Protect login and registering pages from the connected user @cancelled(22-10-15 20:38)
     ✔ Patch that the isAuth is reinitialized when changing of page @done(22-10-15 20:38)
