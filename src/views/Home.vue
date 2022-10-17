@@ -10,12 +10,12 @@
       <v-col cols="auto">
         <v-divider v-if="windowSize > 769" vertical class="divider" />
       </v-col>
-      <v-spacer/>
+      <v-spacer />
       <v-col :cols="windowSize < 768 ? 10 : 5">
         <div v-if="isAuth">
-          <FeedingCreatePost />
+          <FeedingCreatePost :class="windowSize < 768 ? 'text-center' : ''" />
           <div v-if="posts.length > 0">
-            <FeedingPostList  class="text-center"/>
+            <FeedingPostList class="text-center" />
           </div>
         </div>
         <div v-else>
@@ -30,7 +30,7 @@
           >
         </div>
       </v-col>
-      <v-spacer/>
+      <v-spacer />
     </v-row>
   </v-container>
 </template>
