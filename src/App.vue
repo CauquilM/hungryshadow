@@ -5,7 +5,7 @@
         <v-col>
           <v-row no-gutters class="align-center">
             <v-col cols="auto">
-              <v-btn icon href="/" class="ml-sm-5 mt-2">
+              <v-btn icon href="/" class="ml-sm-5 mt-sm-1 mt-2">
                 <v-img
                   alt="Vuetify Logo"
                   href="/"
