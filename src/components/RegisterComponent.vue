@@ -74,8 +74,6 @@ export default {
           username: this.username,
           password: this.password,
           email: this.email,
-        }).then((res) => {
-          console.log("promise login", res);
         });
       }
     },

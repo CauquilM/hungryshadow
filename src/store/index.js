@@ -41,12 +41,10 @@ export default new Vuex.Store({
             },
           })
           .then((res) => {
-            console.log("STORE", res);
             resolve(res);
             dispatch("getPosts");
           })
           .catch((err) => {
-            console.log("STORE", err);
             reject(err);
           });
       });
@@ -60,11 +58,6 @@ export default new Vuex.Store({
         })
         .then((res) => {
           context.commit("SET_POST", res.data);
-          console.log("GET SUCCESS", res);
-        })
-        .catch((error) => {
-          console.log("GET Error", error);
-          console.log("ERROR TOKEN", this.state.accessToken);
         });
     },
     deletePost({ dispatch }, amount) {
@@ -74,12 +67,8 @@ export default new Vuex.Store({
             Authorization: `Bearer ${sessionStorage.getItem("token")}`,
           },
         })
-        .then((res) => {
+        .then(() => {
           dispatch("getPosts");
-          console.log("SUCCESS DELETE", res);
-        })
-        .catch((err) => {
-          console.log("ERROR DELETE", err);
         });
     },
 
@@ -89,11 +78,9 @@ export default new Vuex.Store({
           .post("http://localhost:3000/auth/register", credentials)
           .then((res) => {
             resolve(res);
-            console.log("register => ", res);
           })
           .catch((err) => {
             reject(err);
-            console.log("register => ", err);
           });
       });
     },
@@ -106,7 +93,6 @@ export default new Vuex.Store({
           .then((res) => {
             context.commit("SET_ACCESS_TOKEN_STATE", res.data.accessToken);
             context.commit("SET_USERNAME_IN_STATE", credentials.username);
-            console.log(this.state.accessToken);
             sessionStorage.setItem("auth", true);
             sessionStorage.setItem("token", this.state.accessToken);
             sessionStorage.setItem("username", credentials.username);
@@ -132,13 +118,9 @@ export default new Vuex.Store({
             },
           }
         )
-        .then((res) => {
-          console.log("put ok => ", res);
+        .then(() => {
           sessionStorage.clear();
           location.reload();
-        })
-        .catch((err) => {
-          console.log("put fail => ", err);
         });
     },
 

@@ -87,7 +87,6 @@ export default {
     validate() {
       this.$refs.form.validate();
       if (this.$refs.form.validate() && this.time) {
-        console.log("ok");
         this.createPost({
           portion: this.portion,
           time: this.time,
@@ -102,7 +101,6 @@ export default {
             this.error = "api-error";
           });
       } else {
-        console.log("no");
         this.error = "form-error";
       }
     },
