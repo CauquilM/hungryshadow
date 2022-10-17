@@ -17,9 +17,15 @@
             <FeedingPostList />
           </div>
         </div>
-        <h1 v-else class="text-lg-h4">
-          Bienvenue sur l'application pour nourrir Shadow
-        </h1>
+        <div v-else>
+          <h1 class="text-lg-h4">
+            Bienvenue sur l'application pour nourrir Shadow
+          </h1>
+          <h2 class="text-lg-h5">
+            Inscrivez vous dès maintenant pour pouvoir ajouter du contenu
+          </h2>
+          <v-btn color="blue" href="/registering" class="white--text">S'inscrire</v-btn>
+        </div>
       </v-col>
     </v-row>
   </v-container>
