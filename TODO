@@ -1,24 +1,25 @@
 Design:
     
 Features:
-    ☐ Ajouter un lien redirigeant vers l'inscription sur la page principale @critical
+    
     ☐ Trouver un moyen de vérifier si le token est expiré @critical
-    ☐ Afficher des erreur dans les formulaires selon les erreurs / succès @high
     ☐ Faire de l'app une PWA @high
     ☐ Faire le responsive @high
     ☐ Do RGPD check @low
-    ☐ Ajouter une icone @low
-    ☐ Ajouter un favicon @low
     ☐ Faire de la JSDoc @low
     ☐ Créer un moyen de réinitialiser son mot de passe @low
     ☐ Effacer tous les console.log @low
+    ✔ Ajouter une icone @done(22-10-17 03:18)
+    ✔ Ajouter un favicon @done(22-10-17 03:18)
+    ✔ Afficher des erreur dans les formulaires selon les erreurs / succès @done(22-10-17 02:48)
+    ✔ Ajouter un lien redirigeant vers l'inscription sur la page principale @done(22-10-17 02:41)
     ✘ Crypt all data in API @cancelled(22-10-16 23:12)
+    ✔ Add in the API to check if the mail isn't already used @done(22-10-16 04:51)
+    ✔ Add saving mail in the API @done(22-10-15 22:31)
     ✘ Protect login and registering pages from the connected user @cancelled(22-10-15 20:38)
     ✔ Patch that the isAuth is reinitialized when changing of page @done(22-10-15 20:38)
-    ✔ Add saving mail in the API @done(22-10-15 22:31)
-    ✔ Add in the API to check if the mail isn't already used @done(22-10-16 04:51)
-    ✔ Put the code of app in home @done(22-10-13 07:21)
     ✔ Add comment feature in feedingpostlist @done(22-10-15 01:50)
+    ✔ Put the code of app in home @done(22-10-13 07:21)
 
 Bugs:
     ☐ See API users routes => login route lign 91-92 @critical
