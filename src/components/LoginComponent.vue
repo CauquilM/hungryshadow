@@ -1,6 +1,7 @@
 <template>
   <div>
-    <v-form ref="form" v-model="valid" lazy-validation>
+    <h1 v-if="isAuth">Vous êtes déjà connecté</h1>
+    <v-form v-else ref="form" v-model="valid" lazy-validation>
       <v-text-field
         v-model="username"
         :counter="10"
@@ -15,6 +16,16 @@
         label="Mot de passe"
         required
       />
+
+      <div>
+        <v-chip
+          class="mb-7"
+          text-color="white"
+          v-if="error == 'error'"
+          color="red"
+          >La paire nom d'utilisateur / mot de passe est invalide</v-chip
+        >
+      </div>
 
       <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">
         Validate
@@ -31,6 +42,7 @@ export default {
   name: "LoginComponent",
   data() {
     return {
+      error: "",
       valid: true,
       username: "",
       usernameRules: [(v) => !!v || "Un nom d'utilisateur est requis"],
@@ -49,9 +61,15 @@ export default {
         this.userConnection({
           username: this.username,
           password: this.password,
-        }).then((res) => {
-          console.log("promise login", res);
-        });
+        })
+          .then((res) => {
+            console.log("promise login", res);
+            this.$router.push({ path: "/" });
+          })
+          .catch((err) => {
+            console.log("err => ", err.response.data);
+            this.error = "error";
+          });
       }
     },
     reset() {

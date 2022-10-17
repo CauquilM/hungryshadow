@@ -1,6 +1,7 @@
 <template>
   <div>
-    <v-form ref="form" v-model="valid" lazy-validation>
+    <h1 v-if="isAuth">Vous êtes déjà connecté</h1>
+    <v-form v-else ref="form" v-model="valid" lazy-validation>
       <v-text-field
         v-model="username"
         :counter="10"
