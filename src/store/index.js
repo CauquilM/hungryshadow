@@ -35,7 +35,7 @@ export default new Vuex.Store({
     createPost({ dispatch }, amount) {
       return new Promise((resolve, reject) => {
         axios
-          .post("http://localhost:3000/posts", amount, {
+          .post("https://hungryshadow.cyclic.app/posts", amount, {
             headers: {
               Authorization: `Bearer ${sessionStorage.getItem("token")}`,
             },
@@ -51,7 +51,7 @@ export default new Vuex.Store({
     },
     getPosts(context) {
       axios
-        .get("http://localhost:3000/posts", {
+        .get("https://hungryshadow.cyclic.app/posts", {
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("token")}`,
           },
@@ -62,7 +62,7 @@ export default new Vuex.Store({
     },
     deletePost({ dispatch }, amount) {
       axios
-        .delete(`http://localhost:3000/posts/${amount}`, {
+        .delete(`https://hungryshadow.cyclic.app/posts/${amount}`, {
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("token")}`,
           },
@@ -75,7 +75,7 @@ export default new Vuex.Store({
     userRegistering(_, credentials) {
       return new Promise((resolve, reject) => {
         axios
-          .post("http://localhost:3000/auth/register", credentials)
+          .post("https://hungryshadow.cyclic.app/auth/register", credentials)
           .then((res) => {
             resolve(res);
           })
@@ -89,8 +89,9 @@ export default new Vuex.Store({
     userConnection(context, credentials) {
       return new Promise((resolve, reject) => {
         axios
-          .post("http://localhost:3000/auth/login", credentials)
+          .post("https://hungryshadow.cyclic.app/auth/login", credentials)
           .then((res) => {
+            console.log("success");
             context.commit("SET_ACCESS_TOKEN_STATE", res.data.accessToken);
             context.commit("SET_USERNAME_IN_STATE", credentials.username);
             sessionStorage.setItem("auth", true);
@@ -110,7 +111,7 @@ export default new Vuex.Store({
     userDisconnection() {
       axios
         .put(
-          "http://localhost:3000/auth/token",
+          "https://hungryshadow.cyclic.app/auth/token",
           { username: this.state.username },
           {
             headers: {
