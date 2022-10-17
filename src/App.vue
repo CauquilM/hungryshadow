@@ -1,50 +1,64 @@
 <template>
   <v-app v-resize="modifyWindowSize">
     <v-app-bar app color="white" dark :prominent="windowSize < 768">
-      <v-row no-gutters class="align-center">
-        <v-col cols="auto">
-          <v-btn icon href="/" class="ml-sm-5">
-            <v-img
-              alt="Vuetify Logo"
-              href="/"
-              class="shrink mr-2"
-              contain
-              src="./assets/shadow_bg.webp"
-              transition="scale-transition"
-              width="40"
-            />
-          </v-btn>
-          <div v-if="windowSize < 768">
-            <DisplayHungerComponent class="mt-sm-5 ml-sm-6 mt-3 ml-2" />
-          </div>
+      <v-row>
+        <v-col>
+          <v-row no-gutters class="align-center">
+            <v-col cols="auto">
+              <v-btn icon href="/" class="ml-sm-5 mt-2">
+                <v-img
+                  alt="Vuetify Logo"
+                  href="/"
+                  class="shrink mr-2"
+                  contain
+                  src="./assets/shadow_bg.webp"
+                  transition="scale-transition"
+                  width="40"
+                />
+              </v-btn>
+            </v-col>
+            <v-spacer />
+            <v-col cols="auto">
+              <v-btn
+                text
+                v-if="windowSize > 767 && isAuth"
+                class="black--text"
+                @click="userDisconnection()"
+                >Déconnexion</v-btn
+              >
+              <v-btn
+                href="/login"
+                text
+                v-else-if="windowSize > 767 && !isAuth"
+                class="black--text"
+                >Se connecter</v-btn
+              >
+              <v-btn
+                text
+                v-else-if="windowSize < 767 && isAuth"
+                class="black--text mt-sm-5 mt-8 pr-0"
+                @click="userDisconnection()"
+                >Déconnexion</v-btn
+              >
+              <v-btn
+                href="/login"
+                text
+                v-else
+                class="black--text mt-sm-5 mt-8 pr-0"
+                >Se connecter</v-btn
+              >
+            </v-col>
+          </v-row>
+
+          <v-row v-if="windowSize < 768">
+            <v-spacer />
+            <v-col cols="auto">
+              <DisplayHungerComponent />
+            </v-col>
+            <v-spacer />
+          </v-row>
         </v-col>
       </v-row>
-
-      <v-spacer></v-spacer>
-      <v-btn
-        text
-        v-if="windowSize > 767 && isAuth"
-        class="black--text"
-        @click="userDisconnection()"
-        >Déconnexion</v-btn
-      >
-      <v-btn
-        href="/login"
-        text
-        v-else-if="windowSize > 767 && !isAuth"
-        class="black--text"
-        >Se connecter</v-btn
-      >
-      <v-btn
-        text
-        v-else-if="windowSize < 767 && isAuth"
-        class="black--text mt-sm-5 mt-8 pr-0"
-        @click="userDisconnection()"
-        >Déconnexion</v-btn
-      >
-      <v-btn href="/login" text v-else class="black--text mt-sm-5 mt-8 pr-0"
-        >Se connecter</v-btn
-      >
     </v-app-bar>
     <v-main>
       <router-view />

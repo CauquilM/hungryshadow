@@ -10,7 +10,8 @@
       <v-col>
         <v-divider v-if="windowSize > 769" vertical class="divider" />
       </v-col>
-      <v-col :cols="windowSize < 768 ? 12 : 5" class="text-center">
+      <v-spacer/>
+      <v-col :cols="windowSize < 768 ? 10 : 5">
         <div v-if="isAuth">
           <FeedingCreatePost />
           <div v-if="posts.length > 0">
@@ -18,15 +19,18 @@
           </div>
         </div>
         <div v-else>
-          <h1 class="text-lg-h4">
+          <h1 class="text-lg-h4 mb-15">
             Bienvenue sur l'application pour nourrir Shadow
           </h1>
-          <h2 class="text-lg-h5">
+          <h2 class="text-lg-h5 mb-15">
             Inscrivez vous dès maintenant pour pouvoir ajouter du contenu
           </h2>
-          <v-btn color="blue" href="/registering" class="white--text">S'inscrire</v-btn>
+          <v-btn color="blue" href="/registering" class="white--text"
+            >S'inscrire</v-btn
+          >
         </div>
       </v-col>
+      <v-spacer/>
     </v-row>
   </v-container>
 </template>

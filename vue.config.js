@@ -1,19 +1,11 @@
 module.exports = {
   pwa: {
     manifestOptions: {
-      name: "App Name",
-      short_name: "Short Name",
+      name: "Hungry Shadow",
+      short_name: "Hungry Shadow",
       start_url: "./",
       display: "standalone",
       theme_color: "#000000",
-      // icons: [
-      //   {
-      //     src: "./favicon.ico",
-      //     sizes: "512x512",
-      //     type: "image/svg+xml",
-      //     purpose: "any maskable",
-      //   },
-      // ],
     },
 
     themeColor: "#4DBA87",
