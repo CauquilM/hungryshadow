@@ -8,7 +8,7 @@ Features:
     ☐ Do RGPD check @low
     ☐ Faire de la JSDoc @low
     ☐ Créer un moyen de réinitialiser son mot de passe @low
-    ☐ Effacer tous les console.log @low
+    ✔ Effacer tous les console.log @done(22-10-17 03:42)
     ✔ Ajouter une icone @done(22-10-17 03:18)
     ✔ Ajouter un favicon @done(22-10-17 03:18)
     ✔ Afficher des erreur dans les formulaires selon les erreurs / succès @done(22-10-17 02:48)

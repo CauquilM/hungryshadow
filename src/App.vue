@@ -9,7 +9,7 @@
               href="/"
               class="shrink mr-2"
               contain
-              src="./assets/shadow_bg.png"
+              src="./assets/shadow_bg.webp"
               transition="scale-transition"
               width="40"
             />
