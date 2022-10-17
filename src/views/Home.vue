@@ -7,7 +7,7 @@
           class="text-center sticky-component"
         />
       </v-col>
-      <v-col>
+      <v-col cols="auto">
         <v-divider v-if="windowSize > 769" vertical class="divider" />
       </v-col>
       <v-spacer/>
@@ -15,7 +15,7 @@
         <div v-if="isAuth">
           <FeedingCreatePost />
           <div v-if="posts.length > 0">
-            <FeedingPostList />
+            <FeedingPostList  class="text-center"/>
           </div>
         </div>
         <div v-else>

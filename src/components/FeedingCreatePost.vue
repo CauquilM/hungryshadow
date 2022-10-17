@@ -1,30 +1,33 @@
 <template>
   <div>
     <p class="text-h4">Ajouter un repas</p>
-
-    <p>Quelle quantité ?</p>
     <v-form ref="form" v-model="valid" lazy-validation>
-      <div class="flex-center">
-        <v-radio-group
-          class="radio-group"
-          required
-          v-model="portion"
-          :rules="[(v) => !!v || 'Vous devez choisir une portion!']"
-        >
-          <v-radio
-            v-for="quantity in quantities"
-            :key="quantity.index"
-            :label="quantity.size"
-            :value="quantity.size"
-            :color="quantity.color"
-            class="v-label.theme--light"
-          ></v-radio>
-        </v-radio-group>
-      </div>
-      <div>
-        <p>A quelle heure ?</p>
-        <v-time-picker format="24hr" v-model="time"></v-time-picker>
-      </div>
+      <v-row class="my-5">
+        <v-col>
+          <p>Quelle quantité ?</p>
+          <v-radio-group
+            class="radio-group"
+            required
+            v-model="portion"
+            :rules="[(v) => !!v || 'Vous devez choisir une portion!']"
+          >
+            <v-radio
+              v-for="quantity in quantities"
+              :key="quantity.index"
+              :label="quantity.size"
+              :value="quantity.size"
+              :color="quantity.color"
+              class="v-label.theme--light mb-7"
+            />
+          </v-radio-group>
+        </v-col>
+        <v-col>
+          <div>
+            <p>A quelle heure ?</p>
+            <v-time-picker format="24hr" v-model="time"></v-time-picker>
+          </div>
+        </v-col>
+      </v-row>
       <div>
         <p>Un commentaire ?</p>
         <v-textarea filled rows="3" auto-grow v-model="comment" />
