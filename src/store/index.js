@@ -50,15 +50,9 @@ export default new Vuex.Store({
       });
     },
     getPosts(context) {
-      axios
-        .get("https://hungry-shadow-api.herokuapp.com/posts", {
-          headers: {
-            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-          },
-        })
-        .then((res) => {
-          context.commit("SET_POST", res.data);
-        });
+      axios.get("https://hungry-shadow-api.herokuapp.com/posts").then((res) => {
+        context.commit("SET_POST", res.data);
+      });
     },
     deletePost({ dispatch }, amount) {
       axios
@@ -75,7 +69,10 @@ export default new Vuex.Store({
     userRegistering(_, credentials) {
       return new Promise((resolve, reject) => {
         axios
-          .post("https://hungry-shadow-api.herokuapp.com/auth/register", credentials)
+          .post(
+            "https://hungry-shadow-api.herokuapp.com/auth/register",
+            credentials
+          )
           .then((res) => {
             resolve(res);
           })
@@ -89,7 +86,10 @@ export default new Vuex.Store({
     userConnection(context, credentials) {
       return new Promise((resolve, reject) => {
         axios
-          .post("https://hungry-shadow-api.herokuapp.com/auth/login", credentials)
+          .post(
+            "https://hungry-shadow-api.herokuapp.com/auth/login",
+            credentials
+          )
           .then((res) => {
             console.log("success");
             context.commit("SET_ACCESS_TOKEN_STATE", res.data.accessToken);
