@@ -14,6 +14,9 @@
         <v-text-field
           v-model="password"
           :rules="passwordRules"
+          :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+          :type="showPassword ? 'text' : 'password'"
+          @click:append="showPassword = !showPassword"
           label="Mot de passe"
           required
         />
@@ -47,6 +50,7 @@ export default {
   data() {
     return {
       valid: true,
+      showPassword: false,
       username: "",
       usernameRules: [
         (v) => !!v || "Un nom d'utilisateur est requis",
