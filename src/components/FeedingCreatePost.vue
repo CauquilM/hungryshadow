@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="text-h4">Ajouter un repas</p>
+    <p class="text-h4 text-center mt-10">Ajouter un repas</p>
     <v-form ref="form" v-model="valid" lazy-validation>
       <v-row class="my-5">
         <v-col>

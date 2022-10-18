@@ -15,7 +15,7 @@
         <div v-if="isAuth">
           <FeedingCreatePost :class="windowSize < 768 ? 'text-center' : ''" />
           <div v-if="posts.length > 0">
-            <FeedingPostList class="text-center" />
+            <FeedingPostList class="text-center mt-15" />
           </div>
         </div>
         <div v-else>
