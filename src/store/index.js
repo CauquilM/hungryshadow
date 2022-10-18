@@ -35,7 +35,7 @@ export default new Vuex.Store({
     createPost({ dispatch }, amount) {
       return new Promise((resolve, reject) => {
         axios
-          .post("https://hungryshadow.cyclic.app/posts", amount, {
+          .post("https://hungry-shadow-api.herokuapp.com/posts", amount, {
             headers: {
               Authorization: `Bearer ${sessionStorage.getItem("token")}`,
             },
@@ -51,7 +51,7 @@ export default new Vuex.Store({
     },
     getPosts(context) {
       axios
-        .get("https://hungryshadow.cyclic.app/posts", {
+        .get("https://hungry-shadow-api.herokuapp.com/posts", {
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("token")}`,
           },
@@ -62,7 +62,7 @@ export default new Vuex.Store({
     },
     deletePost({ dispatch }, amount) {
       axios
-        .delete(`https://hungryshadow.cyclic.app/posts/${amount}`, {
+        .delete(`https://hungry-shadow-api.herokuapp.com/posts/${amount}`, {
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("token")}`,
           },
@@ -75,7 +75,7 @@ export default new Vuex.Store({
     userRegistering(_, credentials) {
       return new Promise((resolve, reject) => {
         axios
-          .post("https://hungryshadow.cyclic.app/auth/register", credentials)
+          .post("https://hungry-shadow-api.herokuapp.com/auth/register", credentials)
           .then((res) => {
             resolve(res);
           })
@@ -89,7 +89,7 @@ export default new Vuex.Store({
     userConnection(context, credentials) {
       return new Promise((resolve, reject) => {
         axios
-          .post("https://hungryshadow.cyclic.app/auth/login", credentials)
+          .post("https://hungry-shadow-api.herokuapp.com/auth/login", credentials)
           .then((res) => {
             console.log("success");
             context.commit("SET_ACCESS_TOKEN_STATE", res.data.accessToken);
@@ -111,7 +111,7 @@ export default new Vuex.Store({
     userDisconnection() {
       axios
         .put(
-          "https://hungryshadow.cyclic.app/auth/token",
+          "https://hungry-shadow-api.herokuapp.com/auth/token",
           { username: this.state.username },
           {
             headers: {
