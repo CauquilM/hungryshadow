@@ -81,7 +81,13 @@ export default {
           username: this.username,
           password: this.password,
           email: this.email,
-        });
+        })
+          .then(() => {
+            this.$router.push({ path: "/" });
+          })
+          .catch(() => {
+            this.error = "error";
+          });
       }
     },
     reset() {
