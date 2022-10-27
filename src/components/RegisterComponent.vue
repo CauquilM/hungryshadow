@@ -56,7 +56,9 @@ export default {
       username: "",
       usernameRules: [
         (v) => !!v || `${this.$t("register.errors.missingUsername")}`,
-        (v) => (v && v.length <= 10) || `${this.$t("register.errors.shortUsername")}`,
+        (v) =>
+          (v && v.length <= 10) ||
+          `${this.$t("register.errors.shortUsername")}`,
       ],
       password: "",
       passwordRules: [
@@ -69,7 +71,8 @@ export default {
       email: "",
       emailRules: [
         (v) => !!v || `${this.$t("register.errors.missingEmail")}`,
-        (v) => /.+@.+\..+/.test(v) || `${this.$t("register.errors.illegalEmail")}`,
+        (v) =>
+          /.+@.+\..+/.test(v) || `${this.$t("register.errors.illegalEmail")}`,
       ],
     };
   },
@@ -87,7 +90,7 @@ export default {
           email: this.email,
         })
           .then(() => {
-            this.$router.push({ path: "/" });
+            this.$router.push({ path: `/${this.$i18n.locale}` });
           })
           .catch(() => {
             this.error = "error";

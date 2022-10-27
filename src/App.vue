@@ -5,7 +5,7 @@
         <v-col>
           <v-row no-gutters class="align-center">
             <v-col cols="auto">
-              <v-btn icon href="/" class="ml-sm-5 mt-sm-1 mt-2">
+              <v-btn icon :href="`/${$i18n.locale}`" class="ml-sm-5 mt-sm-1 mt-2">
                 <v-img
                   alt="Vuetify Logo"
                   href="/"
@@ -47,17 +47,6 @@
                 class="black--text mt-sm-5 mt-8 pr-0"
                 >{{ $t("nav.loginBtn.connect") }}</v-btn
               >
-            </v-col>
-            <v-col cols="auto">
-              <!-- <v-select
-                v-model="select"
-                :items="items"
-                item-text="state"
-                item-value="state"
-                label="Standard"
-                return-object
-                single-line
-              /> -->
             </v-col>
           </v-row>
 

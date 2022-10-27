@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 v-if="isAuth">{{$t('login.connected')}}</h1>
+    <h1 v-if="isAuth">{{ $t("login.connected") }}</h1>
     <v-card v-else elevation="4" class="pa-lg-14 pa-md-11 pa-8">
       <v-form ref="form" v-model="valid" lazy-validation>
         <v-text-field
@@ -27,7 +27,7 @@
             text-color="white"
             v-if="error == 'error'"
             color="red"
-            >{{$t('login.errors.wrongCredential')}}</v-chip
+            >{{ $t("login.errors.wrongCredential") }}</v-chip
           >
         </div>
 
@@ -37,7 +37,7 @@
           class="mr-4"
           @click="validate"
         >
-        {{$t('login.loginBtn')}}
+          {{ $t("login.loginBtn") }}
         </v-btn>
 
         <v-btn color="error" class="mr-4" @click="reset"> Reset Form </v-btn>
@@ -56,9 +56,13 @@ export default {
       showPassword: false,
       valid: true,
       username: "",
-      usernameRules: [(v) => !!v || `${this.$t('login.errors.missingUsername')}`],
+      usernameRules: [
+        (v) => !!v || `${this.$t("login.errors.missingUsername")}`,
+      ],
       password: "",
-      passwordRules: [(v) => !!v || `${this.$t('login.errors.missingPassword')}`],
+      passwordRules: [
+        (v) => !!v || `${this.$t("login.errors.missingPassword")}`,
+      ],
     };
   },
   computed: {
@@ -74,7 +78,7 @@ export default {
           password: this.password,
         })
           .then(() => {
-            this.$router.push({ path: "/" });
+            this.$router.push({ path: `/${this.$i18n.locale}` });
           })
           .catch(() => {
             this.error = "error";

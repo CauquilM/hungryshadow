@@ -20,13 +20,16 @@
         </div>
         <div v-else>
           <h1 class="text-lg-h4 mb-15">
-            {{$t('home.userNotConnected.title')}}
+            {{ $t("home.userNotConnected.title") }}
           </h1>
           <h2 class="text-lg-h5 mb-15">
-            {{$t('home.userNotConnected.register')}}
+            {{ $t("home.userNotConnected.register") }}
           </h2>
-          <v-btn color="blue" href="/registering" class="white--text"
-            >{{$t('home.userNotConnected.btn')}}</v-btn
+          <v-btn
+            color="blue"
+            :href="`/${$i18n.locale}/registering`"
+            class="white--text"
+            >{{ $t("home.userNotConnected.btn") }}</v-btn
           >
         </div>
       </v-col>
