@@ -7,7 +7,7 @@
           v-model="username"
           :counter="10"
           :rules="usernameRules"
-          label="Nom d'utilisateur"
+          :label="Nom d'utilisateur"
           required
         />
 

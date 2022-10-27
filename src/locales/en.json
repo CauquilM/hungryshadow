@@ -1,3 +1,44 @@
 {
-  "message": "hello i18n !!"
+  "nav": {
+    "loginBtn": { "connected": "Disconnect", "disconnected": "Connection" }
+  },
+  "home": {
+    "message": {
+      "title": "Welcome on the application to feed Shadow",
+      "register": "Register now to add content",
+      "btn": "Register"
+    },
+    "hunger": {
+      "hungry": "Shadow may be hungry",
+      "notHungry": "Shadow has been fed recently"
+    },
+    "postsList": {
+      "title": "List of meals"
+    }
+  },
+  "login": {
+    "connected": "You are already connected",
+    "usernameLabel": "Username",
+    "passwordLabel": "Password",
+    "resetForm": "Reset Form",
+    "errors": {
+      "wrongCredential": "The username or the password is incorrect",
+      "missingUsername": "A username is requested",
+      "missingPassword": "A password is requested"
+    }
+  },
+  "register": {
+    "connected": "You are already connected",
+    "usernameLabel": "Username",
+    "passwordLabel": "Password",
+    "resetForm": "Reset Form",
+    "errors": {
+      "missingUsername": "A username is requested",
+      "shortUsername": "The length of username is max 10 caracters",
+      "missingPassword": "A password is requested",
+      "illegalPassword": "The password has to be at least 8 caracters long and include 1 uppercase letter, 1 lowercase, 1 special caracter",
+      "missingEmail": "An email is requested",
+      "illegalEmail": "E-mail must be valid"
+    }
+  }
 }
