@@ -2,25 +2,40 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import RegisteringView from "../views/RegisteringView.vue";
-import LoginView from '../views/LoginView.vue'
+import LoginView from "../views/LoginView.vue";
+import i18n from "../i18n";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home,
+    redirect: `/${i18n.locale}`,
   },
   {
-    path: '/login',
-    name: 'LoginView',
-    component: LoginView
-  },
-  {
-    path: "/registering",
-    name: "RegisteringView",
-    component: RegisteringView,
+    path: "/:lang",
+    component: {
+      render(h) {
+        return h("router-view");
+      },
+    },
+    children: [
+      {
+        path: "/",
+        name: "Home",
+        component: Home,
+      },
+      {
+        path: "login",
+        name: "LoginView",
+        component: LoginView,
+      },
+      {
+        path: "registering",
+        name: "RegisteringView",
+        component: RegisteringView,
+      },
+    ],
   },
 ];
 

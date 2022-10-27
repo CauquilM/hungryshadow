@@ -27,7 +27,7 @@
                 >Déconnexion</v-btn
               >
               <v-btn
-                href="/login"
+                :href="`/${$i18n.locale}login`"
                 text
                 v-else-if="windowSize > 767 && !isAuth"
                 class="black--text"
@@ -48,6 +48,17 @@
                 >Se connecter</v-btn
               >
             </v-col>
+            <v-col cols="auto">
+              <!-- <v-select
+                v-model="select"
+                :items="items"
+                item-text="state"
+                item-value="state"
+                label="Standard"
+                return-object
+                single-line
+              /> -->
+            </v-col>
           </v-row>
 
           <v-row v-if="windowSize < 768">
@@ -62,6 +73,7 @@
     </v-app-bar>
     <v-main>
       <router-view />
+      <LanguageSwitch />
     </v-main>
   </v-app>
 </template>
@@ -69,11 +81,14 @@
 <script>
 import { mapActions, mapState } from "vuex";
 import DisplayHungerComponent from "./components/DisplayHungerComponent.vue";
+import LanguageSwitch from "./components/LanguageSwitch.vue";
 export default {
   name: "App",
   data() {
     return {
       connectionBtnTxt: "Se connecter",
+      select: { state: "Français" },
+      items: [{ state: "Français" }, { state: "English" }],
     };
   },
   watch: {
@@ -103,6 +118,11 @@ export default {
       sessionStorage.clear();
     },
   },
-  components: { DisplayHungerComponent },
+  components: { DisplayHungerComponent, LanguageSwitch },
 };
 </script>
+<style>
+.v-select__selection {
+  color: black !important;
+}
+</style>

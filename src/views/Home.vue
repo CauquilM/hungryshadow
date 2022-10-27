@@ -20,7 +20,8 @@
         </div>
         <div v-else>
           <h1 class="text-lg-h4 mb-15">
-            Bienvenue sur l'application pour nourrir Shadow
+            <!-- Bienvenue sur l'application pour nourrir Shadow -->
+            {{$t('message')}}
           </h1>
           <h2 class="text-lg-h5 mb-15">
             Inscrivez vous dès maintenant pour pouvoir ajouter du contenu
