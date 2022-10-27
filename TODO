@@ -3,13 +3,14 @@ Design:
 Features:
     
     ☐ Trouver un moyen de vérifier si le token est expiré @critical    
-    ☐ Faire l'internationalisation @critical    
-    ☐ Créer une page erreur 404 (mauvaise route) @critical    
-    ☐ Faire de l'app une PWA @high
-    ☐ Faire le responsive @high
     ☐ Do RGPD check @low
     ☐ Faire de la JSDoc @low
     ☐ Créer un moyen de réinitialiser son mot de passe @low
+    ✔ La page de connexion ne redirige pas vers la page home après la connexion @critical @done(22-10-28 01:30)
+    ✔ Faire de l'app une PWA @high @done(22-10-28 01:29)
+    ✔ Faire le responsive @high @done(22-10-28 01:29)
+    ✔ Faire l'internationalisation @critical @done(22-10-28 01:29)
+    ✔ Créer une page erreur 404 (mauvaise route) @critical @done(22-10-28 01:29)
     ✔ Effacer tous les console.log @done(22-10-17 03:42)
     ✔ Ajouter une icone @done(22-10-17 03:18)
     ✔ Ajouter un favicon @done(22-10-17 03:18)
@@ -25,4 +26,4 @@ Features:
 
 Bugs:
     ☐ See API users routes => login route lign 91-92 @critical
-    ☐ La page de connexion ne redirige pas vers la page home après la connexion @critical
+    
