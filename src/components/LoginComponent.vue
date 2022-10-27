@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h1 v-if="isAuth">Vous êtes déjà connecté</h1>
+    <h1 v-if="isAuth">{{$t('login.connected')}}</h1>
     <v-card v-else elevation="4" class="pa-lg-14 pa-md-11 pa-8">
       <v-form ref="form" v-model="valid" lazy-validation>
         <v-text-field
           v-model="username"
           :counter="10"
           :rules="usernameRules"
-          :label="Nom d'utilisateur"
+          :label="$t('login.usernameLabel')"
           required
         />
 
@@ -17,7 +17,7 @@
           :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
           :type="showPassword ? 'text' : 'password'"
           @click:append="showPassword = !showPassword"
-          label="Mot de passe"
+          :label="$t('login.passwordLabel')"
           required
         />
 
@@ -27,7 +27,7 @@
             text-color="white"
             v-if="error == 'error'"
             color="red"
-            >La paire nom d'utilisateur / mot de passe est invalide</v-chip
+            >{{$t('login.errors.wrongCredential')}}</v-chip
           >
         </div>
 
@@ -37,7 +37,7 @@
           class="mr-4"
           @click="validate"
         >
-          Validate
+        {{$t('login.loginBtn')}}
         </v-btn>
 
         <v-btn color="error" class="mr-4" @click="reset"> Reset Form </v-btn>
@@ -56,9 +56,9 @@ export default {
       showPassword: false,
       valid: true,
       username: "",
-      usernameRules: [(v) => !!v || "Un nom d'utilisateur est requis"],
+      usernameRules: [(v) => !!v || `${this.$t('login.errors.missingUsername')}`],
       password: "",
-      passwordRules: [(v) => !!v || "Un mot de passe est requis"],
+      passwordRules: [(v) => !!v || `${this.$t('login.errors.missingPassword')}`],
     };
   },
   computed: {

@@ -1,9 +1,9 @@
 {
   "nav": {
-    "loginBtn": { "connected": "Disconnect", "disconnected": "Connection" }
+    "loginBtn": { "connect": "Connection", "disconnect": "Disconnect" }
   },
   "home": {
-    "message": {
+    "userNotConnected": {
       "title": "Welcome on the application to feed Shadow",
       "register": "Register now to add content",
       "btn": "Register"
@@ -13,7 +13,25 @@
       "notHungry": "Shadow has been fed recently"
     },
     "postsList": {
-      "title": "List of meals"
+      "title": "List of meals",
+      "posts": {
+        "time": "Shadow got a meal at ",
+        "portion": "The dose was ",
+        "giver": "The person who gave her food is ",
+        "deleteBtn": "Delete"
+      }
+    },
+    "createAPost": {
+      "title": "Add a meal",
+      "quantity": "Which quantity ?",
+      "time": "When was it ?",
+      "comment": "Type a comment",
+      "errors": {
+        "success": "The post has been created successfully",
+        "apiError": "An error occured with the API",
+        "formError": "Verify that the form has been well filled"
+      },
+      "btnAdd": "Add the meal"
     }
   },
   "login": {
@@ -25,12 +43,14 @@
       "wrongCredential": "The username or the password is incorrect",
       "missingUsername": "A username is requested",
       "missingPassword": "A password is requested"
-    }
+    },
+    "loginBtn": "Connection"
   },
   "register": {
     "connected": "You are already connected",
     "usernameLabel": "Username",
     "passwordLabel": "Password",
+    "emailLabel": "E-mail",
     "resetForm": "Reset Form",
     "errors": {
       "missingUsername": "A username is requested",
@@ -39,6 +59,7 @@
       "illegalPassword": "The password has to be at least 8 caracters long and include 1 uppercase letter, 1 lowercase, 1 special caracter",
       "missingEmail": "An email is requested",
       "illegalEmail": "E-mail must be valid"
-    }
+    },
+    "registerBtn": "Register"
   }
 }

@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h1 v-if="isAuth">Vous êtes déjà connecté</h1>
+    <h1 v-if="isAuth">{{ $t("register.connected") }}</h1>
     <v-card v-else elevation="2" class="pa-lg-14 pa-md-11 pa-sm-8 pa-5">
       <v-form ref="form" v-model="valid" lazy-validation>
         <v-text-field
           v-model="username"
           :counter="10"
           :rules="usernameRules"
-          label="Nom d'utilisateur"
+          :label="$t('register.usernameLabel')"
           required
         />
 
@@ -17,16 +17,16 @@
           :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
           :type="showPassword ? 'text' : 'password'"
           @click:append="showPassword = !showPassword"
-          label="Mot de passe"
+          :label="$t('register.passwordLabel')"
           required
         />
 
         <v-text-field
           v-model="email"
           :rules="emailRules"
-          label="E-mail"
+          :label="$t('register.emailLabel')"
           required
-        ></v-text-field>
+        />
 
         <v-btn
           :disabled="!valid"
@@ -34,10 +34,12 @@
           class="mr-4"
           @click="validate"
         >
-          Validate
+          {{ $t("register.registerBtn") }}
         </v-btn>
 
-        <v-btn color="error" class="mr-4" @click="reset"> Reset Form </v-btn>
+        <v-btn color="error" class="mr-4" @click="reset">
+          {{ $t("register.resetForm") }}
+        </v-btn>
       </v-form>
     </v-card>
   </div>
@@ -53,23 +55,21 @@ export default {
       showPassword: false,
       username: "",
       usernameRules: [
-        (v) => !!v || "Un nom d'utilisateur est requis",
-        (v) =>
-          (v && v.length <= 10) || "La longueur doit-être max 10 caractères",
+        (v) => !!v || `${this.$t("register.errors.missingUsername")}`,
+        (v) => (v && v.length <= 10) || `${this.$t("register.errors.shortUsername")}`,
       ],
       password: "",
       passwordRules: [
-        (v) => !!v || "Un mot de passe est requis",
+        (v) => !!v || `${this.$t("register.errors.missingPassword")}`,
         (v) =>
           /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(
             v
-          ) ||
-          "La longueur doit-être d'au moins 8 caractères dont 1 majuscule, 1 minuscule, 1 caractère numérique.",
+          ) || `${this.$t("register.errors.ilegalPassword")}`,
       ],
       email: "",
       emailRules: [
-        (v) => !!v || "E-mail is required",
-        (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+        (v) => !!v || `${this.$t("register.errors.missingEmail")}`,
+        (v) => /.+@.+\..+/.test(v) || `${this.$t("register.errors.illegalEmail")}`,
       ],
     };
   },

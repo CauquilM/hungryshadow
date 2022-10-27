@@ -1,9 +1,9 @@
 <template>
   <p class="text-sm-h5 text-subtitle-1 black--text" v-if="!isHungry">
-    😺 Shadow a été nourrie il y a peu
+    😺 {{ $t("home.hunger.notHungry") }}
   </p>
   <p class="text-sm-h5 text-subtitle-1 black--text" v-else>
-    😾 Shadow peut avoir faim
+    😾 {{ $t("home.hunger.hungry") }}
   </p>
 </template>
 <script>
@@ -38,15 +38,15 @@ export default {
         var portionTime;
         switch (lastPortion) {
           case "petite":
-            portionTime = 2
+            portionTime = 2;
             break;
           case "une poignée":
-            portionTime = 4
+            portionTime = 4;
             break;
           case "beaucoup":
-            portionTime = 4
+            portionTime = 4;
             break;
-        
+
           default:
             break;
         }

@@ -1,3 +1,61 @@
 {
-  "message": "Bonjour i18n !!"
+  "nav": {
+    "loginBtn": { "connect": "Connexion", "disconnect": "Déconnexion" }
+  },
+  "home": {
+    "userNotConnected": {
+      "title": "Bienvenue sur l'application pour nourrir shadow",
+      "register": "Inscrivez vous pour ajouter du contenu",
+      "btn": "S'inscrire"
+    },
+    "hunger": {
+      "hungry": "Shadow peut avoir faim",
+      "notHungry": "Shadow a été nourrie récemment"
+    },
+    "postsList": {
+      "title": "Liste des repas",
+      "posts": {
+        "time": "Shadow à mangée à ",
+        "portion": "La dose était ",
+        "giver": "La personne qui a donnée est ",
+        "deleteBtn": "Supprimer"
+      }
+    },
+    "createAPost": {
+      "title": "Ajouter un repas",
+      "quantity": "Quelle quantité ?",
+      "time": "Quand était-ce ?",
+      "comment": "Un commentaire ?",
+      "errors": {
+        "success": "Le post a été crée avec succès",
+        "apiError": "Oups.. Il y a une erreur avec l'API",
+        "formError": "Vérifiez que le formulaire a été correctement rempli"
+      }
+    }
+  },
+  "login": {
+    "connected": "Vous êtes déjà connecté",
+    "usernameLabel": "Nom d'utilisateur",
+    "passwordLabel": "Mot de passe",
+    "resetForm": "Réinitialiser",
+    "errors": {
+      "wrongCredential": "Le nom d'utilisateur ou le mot de passe est incorrect",
+      "missingUsername": "Un nom d'utilisateur est requis",
+      "missingPassword": "Un mot de passe est requis"
+    }
+  },
+  "register": {
+    "connected": "Vous êtes déjà connecté",
+    "usernameLabel": "Nom d'utilisateur",
+    "passwordLabel": "Mot de passe",
+    "resetForm": "Réinitialiser",
+    "errors": {
+      "missingUsername": "Un nom d'utilisateur est requis",
+      "shortUsername": "La longueur ne peux dépasser 10 caractères",
+      "missingPassword": "Un mot de passe est requis",
+      "illegalPassword": "La longueur doit-être d'au moins 8 caractères dont 1 majuscule, 1 minuscule, 1 caractère numérique",
+      "missingEmail": "Un email est requis",
+      "illegalEmail": "L'email doit être valide"
+    }
+  }
 }

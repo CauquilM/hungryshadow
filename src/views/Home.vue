@@ -20,14 +20,13 @@
         </div>
         <div v-else>
           <h1 class="text-lg-h4 mb-15">
-            <!-- Bienvenue sur l'application pour nourrir Shadow -->
-            {{$t('message')}}
+            {{$t('home.userNotConnected.title')}}
           </h1>
           <h2 class="text-lg-h5 mb-15">
-            Inscrivez vous dès maintenant pour pouvoir ajouter du contenu
+            {{$t('home.userNotConnected.register')}}
           </h2>
           <v-btn color="blue" href="/registering" class="white--text"
-            >S'inscrire</v-btn
+            >{{$t('home.userNotConnected.btn')}}</v-btn
           >
         </div>
       </v-col>
