@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import RegisteringView from "../views/RegisteringView.vue";
 import LoginView from "../views/LoginView.vue";
-import PageNotFound from "../views/PageNotFound.vue"
+import PageNotFound from "../views/PageNotFound.vue";
 import i18n from "../i18n";
 
 Vue.use(VueRouter);
@@ -27,11 +27,6 @@ const routes = [
         component: Home,
       },
       {
-        path: "*",
-        name: "PageNotFound",
-        component: PageNotFound,
-      },
-      {
         path: "login",
         name: "LoginView",
         component: LoginView,
@@ -40,6 +35,11 @@ const routes = [
         path: "registering",
         name: "RegisteringView",
         component: RegisteringView,
+      },
+      {
+        path: "*",
+        name: "PageNotFound",
+        component: PageNotFound,
       },
     ],
   },
