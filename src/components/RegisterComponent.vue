@@ -28,18 +28,29 @@
           required
         />
 
-        <v-btn
-          :disabled="!valid"
-          color="success"
-          class="mr-4"
-          @click="validate"
-        >
-          {{ $t("register.registerBtn") }}
-        </v-btn>
+        <div>
+          <v-chip
+            class="mb-7"
+            text-color="white"
+            v-if="error != ''"
+            color="red"
+            >{{ $t("register.errors.credientialsAlreadyUsed") }}</v-chip
+          >
+        </div>
+        <div>
+          <v-btn
+            :disabled="!valid"
+            color="success"
+            class="mr-4"
+            @click="validate"
+          >
+            {{ $t("register.registerBtn") }}
+          </v-btn>
 
-        <v-btn color="error" class="mr-4" @click="reset">
-          {{ $t("register.resetForm") }}
-        </v-btn>
+          <v-btn color="error" class="mr-4" @click="reset">
+            {{ $t("register.resetForm") }}
+          </v-btn>
+        </div>
       </v-form>
     </v-card>
   </div>
@@ -66,7 +77,7 @@ export default {
         (v) =>
           /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(
             v
-          ) || `${this.$t("register.errors.ilegalPassword")}`,
+          ) || `${this.$t("register.errors.illegalPassword")}`,
       ],
       email: "",
       emailRules: [
@@ -74,6 +85,7 @@ export default {
         (v) =>
           /.+@.+\..+/.test(v) || `${this.$t("register.errors.illegalEmail")}`,
       ],
+      error: "",
     };
   },
   computed: {
@@ -92,8 +104,9 @@ export default {
           .then(() => {
             this.$router.push({ path: `/${this.$i18n.locale}` });
           })
-          .catch(() => {
+          .catch((err) => {
             this.error = "error";
+            console.log("err =>", err);
           });
       }
     },

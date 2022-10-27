@@ -72,9 +72,9 @@ export default {
     return {
       valid: true,
       quantities: [
-        { size: "petite", color: "green darken-4" },
-        { size: "une poignée", color: "orange darken-4" },
-        { size: "beaucoup", color: "red darken-4" },
+        { size: `${this.$t('home.createAPost.mealSize.small')}`, color: "green darken-4" },
+        { size: `${this.$t('home.createAPost.mealSize.normal')}`, color: "orange darken-4" },
+        { size: `${this.$t('home.createAPost.mealSize.big')}`, color: "red darken-4" },
       ],
       portion: false,
       time: null,

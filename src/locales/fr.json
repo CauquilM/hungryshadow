@@ -26,10 +26,16 @@
       "quantity": "Quelle quantité ?",
       "time": "Quand était-ce ?",
       "comment": "Un commentaire ?",
+      "mealSize": {
+        "small": "petite",
+        "normal": "une poignée",
+        "big": "grosse"
+      },
       "errors": {
         "success": "Le post a été crée avec succès",
         "apiError": "Oups.. Il y a une erreur avec l'API",
-        "formError": "Vérifiez que le formulaire a été correctement rempli"
+        "formError": "Vérifiez que le formulaire a été correctement rempli",
+        "btnAdd": "Ajouter le repas"
       }
     }
   },
@@ -42,12 +48,14 @@
       "wrongCredential": "Le nom d'utilisateur ou le mot de passe est incorrect",
       "missingUsername": "Un nom d'utilisateur est requis",
       "missingPassword": "Un mot de passe est requis"
-    }
+    },
+    "loginBtn": "Connexion"
   },
   "register": {
     "connected": "Vous êtes déjà connecté",
     "usernameLabel": "Nom d'utilisateur",
     "passwordLabel": "Mot de passe",
+    "emailLabel": "E-mail",
     "resetForm": "Réinitialiser",
     "errors": {
       "missingUsername": "Un nom d'utilisateur est requis",
@@ -55,7 +63,9 @@
       "missingPassword": "Un mot de passe est requis",
       "illegalPassword": "La longueur doit-être d'au moins 8 caractères dont 1 majuscule, 1 minuscule, 1 caractère numérique",
       "missingEmail": "Un email est requis",
-      "illegalEmail": "L'email doit être valide"
-    }
+      "illegalEmail": "L'email doit être valide",
+      "credientialsAlreadyUsed": "Le nom d'utilisateur ou cet email est déjà pris"
+    },
+    "registerBtn": "S'inscrire"
   }
 }

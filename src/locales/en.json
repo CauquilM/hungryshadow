@@ -26,6 +26,11 @@
       "quantity": "Which quantity ?",
       "time": "When was it ?",
       "comment": "Type a comment",
+      "mealSize": {
+        "small": "small",
+        "normal": "normal",
+        "big": "big"
+      },
       "errors": {
         "success": "The post has been created successfully",
         "apiError": "An error occured with the API",
@@ -58,7 +63,8 @@
       "missingPassword": "A password is requested",
       "illegalPassword": "The password has to be at least 8 caracters long and include 1 uppercase letter, 1 lowercase, 1 special caracter",
       "missingEmail": "An email is requested",
-      "illegalEmail": "E-mail must be valid"
+      "illegalEmail": "E-mail must be valid",
+      "credientialsAlreadyUsed": "This username or email is already taken"
     },
     "registerBtn": "Register"
   }
