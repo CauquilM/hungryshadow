@@ -2,7 +2,9 @@ Design:
     
 Features:
     
-    ☐ Trouver un moyen de vérifier si le token est expiré @critical
+    ☐ Trouver un moyen de vérifier si le token est expiré @critical    
+    ☐ Faire l'internationalisation @critical    
+    ☐ Créer une page erreur 404 (mauvaise route) @critical    
     ☐ Faire de l'app une PWA @high
     ☐ Faire le responsive @high
     ☐ Do RGPD check @low

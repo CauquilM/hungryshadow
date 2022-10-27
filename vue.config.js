@@ -23,5 +23,16 @@ module.exports = {
     // configure the workbox plugin
     workboxPluginMode: "GenerateSW",
   },
+
   transpileDependencies: ["vuetify"],
+
+  pluginOptions: {
+    i18n: {
+      locale: 'fr',
+      fallbackLocale: 'fr',
+      localeDir: 'locales',
+      enableInSFC: false,
+      enableBridge: false
+    }
+  }
 };
