@@ -5,10 +5,13 @@
         <v-col>
           <v-row no-gutters class="align-center">
             <v-col cols="auto">
-              <v-btn icon :href="`/${$i18n.locale}`" class="ml-sm-5 mt-sm-1 mt-2">
+              <v-btn
+                icon
+                :href="`/${$i18n.locale}`"
+                class="ml-sm-5 mt-sm-1 mt-2"
+              >
                 <v-img
                   alt="Vuetify Logo"
-                  href="/"
                   class="shrink mr-2"
                   contain
                   src="./assets/shadow_bg.webp"
@@ -41,7 +44,7 @@
                 >{{ $t("nav.loginBtn.disconnect") }}</v-btn
               >
               <v-btn
-                href="/login"
+                :href="`/${$i18n.locale}/login`"
                 text
                 v-else
                 class="black--text mt-sm-5 mt-8 pr-0"

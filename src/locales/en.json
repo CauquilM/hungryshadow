@@ -67,5 +67,9 @@
       "credientialsAlreadyUsed": "This username or email is already taken"
     },
     "registerBtn": "Register"
+  },
+  "pageNotFound": {
+    "title": "Oops.. It seems like you are on a page that doesn't exist",
+    "btn": "Go to home"
   }
 }

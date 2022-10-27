@@ -67,5 +67,9 @@
       "credientialsAlreadyUsed": "Le nom d'utilisateur ou cet email est déjà pris"
     },
     "registerBtn": "S'inscrire"
+  },
+  "pageNotFound": {
+    "title": "Oups.. Il semble que ce que vous cherchez n'existe pas",
+    "btn": "Revenir à la page principale"
   }
 }
