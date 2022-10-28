@@ -19,20 +19,15 @@ export default {
   computed: {
     ...mapState(["posts"]),
   },
-  mounted() {
-    if (this.posts.length !== 0) {
-      var lastMeal = this.posts[this.posts.length - 1].time.substring(0, 2);
-      var actualHour = new Date().getHours();
-      if (actualHour >= 4 && actualHour - lastMeal >= 4) {
-        this.isHungry = true;
-      } else {
-        this.isHungry = false;
-      }
-    }
-  },
   watch: {
     posts() {
-      if (this.posts.length !== 0) {
+      if (this.posts.length === 0) {
+        return (this.isHungry = true);
+      }
+
+      var date = new Date().toLocaleDateString("fr");
+      var dateToCompare = this.posts[this.posts.length - 1].date;
+      if (dateToCompare === date) {
         var lastMeal = this.posts[this.posts.length - 1].time.substring(0, 2);
         var lastPortion = this.posts[this.posts.length - 1].portion;
         var portionTime;

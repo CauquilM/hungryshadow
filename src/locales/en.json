@@ -16,6 +16,7 @@
       "title": "List of meals",
       "posts": {
         "time": "Shadow got a meal at ",
+        "date": "On",
         "portion": "The dose was ",
         "giver": "The person who gave her food is ",
         "deleteBtn": "Delete"

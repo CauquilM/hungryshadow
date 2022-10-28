@@ -16,6 +16,7 @@
       "title": "Liste des repas",
       "posts": {
         "time": "Shadow à mangée à ",
+        "date": "Le",
         "portion": "La dose était ",
         "giver": "La personne qui a donnée est ",
         "deleteBtn": "Supprimer"
@@ -34,9 +35,9 @@
       "errors": {
         "success": "Le post a été crée avec succès",
         "apiError": "Oups.. Il y a une erreur avec l'API",
-        "formError": "Vérifiez que le formulaire a été correctement rempli",
-        "btnAdd": "Ajouter le repas"
-      }
+        "formError": "Vérifiez que le formulaire a été correctement rempli"
+      },
+      "btnAdd": "Ajouter le repas"
     }
   },
   "login": {

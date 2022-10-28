@@ -45,14 +45,14 @@
           text-color="white"
           v-if="error == 'api-error'"
           color="red"
-          >{{$t('home.createAPost.apiError')}}</v-chip
+          >{{$t('home.createAPost.errors.apiError')}}</v-chip
         >
         <v-chip
           class="mb-7"
           text-color="white"
           v-if="error == 'success'"
           color="green"
-          >{{$t('home.createAPost.success')}}</v-chip
+          >{{$t('home.createAPost.errors.success')}}</v-chip
         >
       </div>
       <div>
@@ -100,8 +100,9 @@ export default {
           .then(() => {
             this.error = "success";
           })
-          .catch(() => {
+          .catch((err) => {
             this.error = "api-error";
+            console.log(err);
           });
       } else {
         this.error = "form-error";

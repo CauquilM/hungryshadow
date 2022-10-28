@@ -104,9 +104,8 @@ export default {
           .then(() => {
             this.$router.push({ path: `/${this.$i18n.locale}` });
           })
-          .catch((err) => {
+          .catch(() => {
             this.error = "error";
-            console.log("err =>", err);
           });
       }
     },
