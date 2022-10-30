@@ -21,6 +21,14 @@ export default {
   },
   watch: {
     posts() {
+      this.calculateHunger();
+    },
+  },
+  mounted() {
+    this.calculateHunger();
+  },
+  methods: {
+    calculateHunger() {
       if (this.posts.length === 0) {
         return (this.isHungry = true);
       }
