@@ -40,7 +40,7 @@
           {{ $t("login.loginBtn") }}
         </v-btn>
 
-        <v-btn color="error" class="mr-4" @click="reset"> Reset Form </v-btn>
+        <v-btn color="error" class="mr-4" @click="reset"> {{ $t("login.resetForm") }} </v-btn>
       </v-form>
     </v-card>
   </div>
@@ -73,6 +73,10 @@ export default {
     validate() {
       this.$refs.form.validate();
       if (this.$refs.form.validate()) {
+        console.log("err => ", {
+          user: this.username,
+          pass: this.password,
+        });
         this.userConnection({
           username: this.username,
           password: this.password,
