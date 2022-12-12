@@ -35,7 +35,7 @@ export default new Vuex.Store({
     createPost({ dispatch }, amount) {
       return new Promise((resolve, reject) => {
         axios
-          .post("https://hungry-shadow-api.herokuapp.com/posts", amount, {
+          .post("http://localhost:3000/posts", amount, {
             headers: {
               Authorization: `Bearer ${sessionStorage.getItem("token")}`,
             },
@@ -50,13 +50,13 @@ export default new Vuex.Store({
       });
     },
     getPosts(context) {
-      axios.get("https://hungry-shadow-api.herokuapp.com/posts").then((res) => {
+      axios.get("http://localhost:3000/posts").then((res) => {
         context.commit("SET_POST", res.data);
       });
     },
     deletePost({ dispatch }, amount) {
       axios
-        .delete(`https://hungry-shadow-api.herokuapp.com/posts/${amount}`, {
+        .delete(`http://localhost:3000/posts/${amount}`, {
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("token")}`,
           },
@@ -70,7 +70,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         axios
           .post(
-            "https://hungry-shadow-api.herokuapp.com/auth/register",
+            "http://localhost:3000/auth/register",
             credentials
           )
           .then((res) => {
@@ -87,7 +87,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         axios
           .post(
-            "https://hungry-shadow-api.herokuapp.com/auth/login",
+            "http://localhost:3000/auth/login",
             credentials
           )
           .then((res) => {
@@ -111,7 +111,7 @@ export default new Vuex.Store({
     userDisconnection() {
       axios
         .put(
-          "https://hungry-shadow-api.herokuapp.com/auth/token",
+          "http://localhost:3000/auth/token",
           { username: this.state.username },
           {
             headers: {
