@@ -1,34 +1,21 @@
-# hungryshadow
+  # Application pour nourrir mon chat
 
-## Project setup
-```
-npm install
-```
+## Description du projet :
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Nous avions besoin mes parents et moi d'un outil pour nous permettre de savoir quand nous avions nourri notre chat.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+J’ai également développé **une API** pour gérer les données.
 
-### Run your unit tests
-```
-npm run test:unit
-```
 
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
+### Environnement :
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- VueJS
+- Vuetify
+- Vuex
+- API
+- Axios
+- Windows 10
+- Visual Studio Code
+- Vercel
+- Git 
+- GitHub
