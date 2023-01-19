@@ -50,9 +50,15 @@ export default new Vuex.Store({
       });
     },
     getPosts(context) {
-      axios.get("http://localhost:3000/posts").then((res) => {
-        context.commit("SET_POST", res.data);
-      });
+      axios
+        .get("http://localhost:3000/posts", {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+          },
+        })
+        .then((res) => {
+          context.commit("SET_POST", res.data);
+        });
     },
     deletePost({ dispatch }, amount) {
       axios
@@ -69,10 +75,7 @@ export default new Vuex.Store({
     userRegistering(_, credentials) {
       return new Promise((resolve, reject) => {
         axios
-          .post(
-            "http://localhost:3000/auth/register",
-            credentials
-          )
+          .post("http://localhost:3000/auth/register", credentials)
           .then((res) => {
             resolve(res);
           })
@@ -86,10 +89,7 @@ export default new Vuex.Store({
     userConnection(context, credentials) {
       return new Promise((resolve, reject) => {
         axios
-          .post(
-            "http://localhost:3000/auth/login",
-            credentials
-          )
+          .post("http://localhost:3000/auth/login", credentials)
           .then((res) => {
             console.log("success");
             context.commit("SET_ACCESS_TOKEN_STATE", res.data.accessToken);
